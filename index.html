@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mkships</title>
+  <meta name="description" content="Shipped iOS apps and web projects by MK.">
+  <meta name="theme-color" content="#0D0D0F">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="mkships">
+  <meta property="og:description" content="Shipped iOS apps and web projects by MK.">
+  <meta property="og:image" content="https://mkships.app/og-image.png">
+  <meta property="og:url" content="https://mkships.app">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="mkships">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="mkships">
+  <meta name="twitter:description" content="Shipped iOS apps and web projects by MK.">
+  <meta name="twitter:image" content="https://mkships.app/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+
+  <style>
+    /* ============================================
+       mkships — Portfolio Site
+       System font stack — no external dependencies
+       Dark mode only
+       ============================================ */
+
+    :root {
+      --bg-primary: #0D0D0F;
+      --bg-surface: #16161A;
+      --bg-elevated: #1E1E24;
+      --text-primary: #EAEAEC;
+      --text-secondary: #8A8A96;
+      --text-muted: #5C5C66;
+      --accent: #3BDFCF;
+      --accent-hover: #5EEADD;
+      --border: #2A2A32;
+      --radius-lg: 16px;
+      --radius-icon: 22%;
+      --font-primary: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: "SF Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-primary);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ---- Header ---- */
+    header {
+      text-align: center;
+      padding-top: 48px;
+      margin-bottom: 32px;
+    }
+
+    header h1 {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text-primary);
+    }
+
+    header p {
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-top: 8px;
+    }
+
+    /* ---- Product Grid ---- */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    /* ---- Product Card ---- */
+    /*
+      =========================================================
+      HOW TO ADD A NEW PRODUCT CARD
+      =========================================================
+      1. Copy the entire <div class="card"> block below.
+      2. Replace:
+         - src="icons/NAME.png" with your icon file path
+         - alt="NAME app icon" with the product name
+         - The <h2> product name
+         - The <p class="card-desc"> description (1-2 sentences)
+         - The <a> link href and link text
+           Use "App Store &#8594;" for iOS apps
+           Use "View Site &#8594;" for web projects
+      3. Drop the icon image (112x112 PNG) in the icons/ folder.
+      4. Place the card block in the desired position (top = first).
+      5. Deploy.
+
+      Example card:
+
+      <div class="card">
+        <img class="card-icon" src="icons/your-app.png" alt="Your App app icon" width="56" height="56">
+        <div class="card-body">
+          <h2 class="card-name">Your App</h2>
+          <p class="card-desc">What it does in 1-2 sentences.</p>
+          <a class="card-link" href="https://apps.apple.com/..." target="_blank" rel="noopener noreferrer">App Store &#8594;</a>
+        </div>
+      </div>
+      =========================================================
+    */
+
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: border-color 150ms;
+    }
+
+    .card:hover {
+      border-color: var(--text-muted);
+    }
+
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-icon);
+      object-fit: cover;
+      flex-shrink: 0;
+      background: var(--bg-elevated);
+    }
+
+    .card-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .card-link {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      line-height: 1.5;
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
+    }
+
+    .card-link:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* ---- Footer ---- */
+    footer {
+      text-align: center;
+      margin-top: 64px;
+      padding-bottom: 48px;
+    }
+
+    footer a {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 150ms;
+    }
+
+    footer a:hover {
+      color: var(--text-primary);
+    }
+
+    footer a:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* ---- Desktop ---- */
+    @media (min-width: 768px) {
+      .container {
+        padding: 0 32px;
+      }
+
+      header {
+        padding-top: 80px;
+        margin-bottom: 48px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      footer {
+        padding-bottom: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>mkships</h1>
+      <p>Apps and projects by MK</p>
+    </header>
+
+    <main>
+      <div class="grid">
+
+        <!-- ========== PRODUCT CARDS START ========== -->
+
+        <div class="card">
+          <img class="card-icon" src="icons/strata.png" alt="Strata app icon" width="56" height="56">
+          <div class="card-body">
+            <h2 class="card-name">Strata</h2>
+            <p class="card-desc">Minesweeper with irregular grids. Dark mode, one-hand play, no timers.</p>
+            <a class="card-link" href="#" target="_blank" rel="noopener noreferrer">App Store &#8594;</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="card-icon" src="icons/gramo.png" alt="Gramo app icon" width="56" height="56">
+          <div class="card-body">
+            <h2 class="card-name">Gramo</h2>
+            <p class="card-desc">Track daily protein intake with natural language. AI estimates macros so you don't have to measure.</p>
+            <a class="card-link" href="#" target="_blank" rel="noopener noreferrer">App Store &#8594;</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="card-icon" src="icons/first-year.png" alt="First Year app icon" width="56" height="56">
+          <div class="card-body">
+            <h2 class="card-name">First Year</h2>
+            <p class="card-desc">A baby photo journal. One photo per week, from birth to age one.</p>
+            <a class="card-link" href="#" target="_blank" rel="noopener noreferrer">App Store &#8594;</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="card-icon" src="icons/tally.png" alt="Tally app icon" width="56" height="56">
+          <div class="card-body">
+            <h2 class="card-name">Tally</h2>
+            <p class="card-desc">A habit tracker. Tap to log, see streaks build.</p>
+            <a class="card-link" href="#" target="_blank" rel="noopener noreferrer">App Store &#8594;</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="card-icon" src="icons/placeholder.png" alt="Project Name icon" width="56" height="56">
+          <div class="card-body">
+            <h2 class="card-name">Project Name</h2>
+            <p class="card-desc">Description of the web project goes here.</p>
+            <a class="card-link" href="#" target="_blank" rel="noopener noreferrer">View Site &#8594;</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="card-icon" src="icons/placeholder.png" alt="Project Name icon" width="56" height="56">
+          <div class="card-body">
+            <h2 class="card-name">Project Name</h2>
+            <p class="card-desc">Description of the web project goes here.</p>
+            <a class="card-link" href="#" target="_blank" rel="noopener noreferrer">View Site &#8594;</a>
+          </div>
+        </div>
+
+        <!-- ========== PRODUCT CARDS END ========== -->
+
+      </div>
+    </main>
+
+    <footer>
+      <a href="mailto:hello@mkships.app">hello@mkships.app</a>
+    </footer>
+
+  </div>
+
+</body>
+</html>
