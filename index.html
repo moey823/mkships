@@ -7,7 +7,10 @@
   <meta name="description" content="Shipped iOS apps and web projects by MK.">
   <meta name="theme-color" content="#0D0D0F">
 
-  <!-- Open Graph -->
+  <!-- Open Graph
+       NOTE: og-image.svg created with logo, text, tagline. Most social platforms
+       require PNG/JPG for og:image. Convert og-image.svg to og-image.png (1200x630)
+       before deploying. Until then, the PNG is a placeholder. -->
   <meta property="og:title" content="mkships">
   <meta property="og:description" content="Shipped iOS apps and web projects by MK.">
   <meta property="og:image" content="https://mkships.app/og-image.png">
@@ -21,7 +24,9 @@
   <meta name="twitter:description" content="Shipped iOS apps and web projects by MK.">
   <meta name="twitter:image" content="https://mkships.app/og-image.png">
 
-  <!-- Favicon -->
+  <!-- Favicon — SVG is the primary favicon (k arrow form in accent color).
+       PNG fallback needs to be re-rendered from favicon.svg to show k arrow form.
+       Current favicon-32x32.png is a solid teal square placeholder. -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 
@@ -54,6 +59,7 @@
       font-family: var(--font-primary);
       background: var(--bg-primary);
       color: var(--text-primary);
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -68,6 +74,16 @@
       text-align: center;
       padding-top: 48px;
       margin-bottom: 32px;
+    }
+
+    .header-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-lockup svg {
+      flex-shrink: 0;
     }
 
     header h1 {
@@ -186,6 +202,41 @@
       outline-offset: 2px;
     }
 
+    /* ---- Placeholder Card ---- */
+    .card.card--placeholder {
+      opacity: 0.5;
+      border-style: dashed;
+    }
+
+    .card.card--placeholder:hover {
+      border-color: var(--border);
+      opacity: 0.5;
+    }
+
+    .card--placeholder .card-icon-placeholder {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-icon);
+      background: var(--bg-elevated);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card--placeholder .card-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--bg-elevated);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-top: 4px;
+    }
+
     /* ---- Footer ---- */
     footer {
       text-align: center;
@@ -236,7 +287,19 @@
   <div class="container">
 
     <header>
-      <h1>mkships</h1>
+      <div class="header-lockup">
+        <svg width="36" height="36" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- mk monogram: m shares right stroke with k -->
+          <rect x="12" y="20" width="10" height="80" rx="3" fill="#EAEAEC"/>
+          <rect x="37" y="20" width="10" height="80" rx="3" fill="#EAEAEC"/>
+          <rect x="18" y="20" width="10" height="44" rx="3" fill="#EAEAEC" transform="rotate(16 23 20)"/>
+          <rect x="32" y="20" width="10" height="44" rx="3" fill="#EAEAEC" transform="rotate(-16 37 20)"/>
+          <rect x="55" y="20" width="10" height="80" rx="3" fill="#3BDFCF"/>
+          <polygon points="62,58 65,52 98,22 102,28" fill="#3BDFCF"/>
+          <polygon points="62,62 65,68 100,100 96,105" fill="#3BDFCF"/>
+        </svg>
+        <h1>mkships</h1>
+      </div>
       <p>Apps and projects by MK</p>
     </header>
 
@@ -250,7 +313,8 @@
           <div class="card-body">
             <h2 class="card-name">Strata</h2>
             <p class="card-desc">Minesweeper with irregular grids. Dark mode, one-hand play, no timers.</p>
-            <a class="card-link" href="#" target="_blank" rel="noopener noreferrer">App Store &#8594;</a>
+            <!-- TODO: Replace with real App Store URL -->
+            <a class="card-link" href="https://apps.apple.com/app/strata/id000000000" target="_blank" rel="noopener noreferrer">App Store &#8594;</a>
           </div>
         </div>
 
@@ -259,7 +323,8 @@
           <div class="card-body">
             <h2 class="card-name">Gramo</h2>
             <p class="card-desc">Track daily protein intake with natural language. AI estimates macros so you don't have to measure.</p>
-            <a class="card-link" href="#" target="_blank" rel="noopener noreferrer">App Store &#8594;</a>
+            <!-- TODO: Replace with real App Store URL -->
+            <a class="card-link" href="https://apps.apple.com/app/gramo/id000000000" target="_blank" rel="noopener noreferrer">App Store &#8594;</a>
           </div>
         </div>
 
@@ -268,7 +333,8 @@
           <div class="card-body">
             <h2 class="card-name">First Year</h2>
             <p class="card-desc">A baby photo journal. One photo per week, from birth to age one.</p>
-            <a class="card-link" href="#" target="_blank" rel="noopener noreferrer">App Store &#8594;</a>
+            <!-- TODO: Replace with real App Store URL -->
+            <a class="card-link" href="https://apps.apple.com/app/first-year/id000000000" target="_blank" rel="noopener noreferrer">App Store &#8594;</a>
           </div>
         </div>
 
@@ -277,25 +343,38 @@
           <div class="card-body">
             <h2 class="card-name">Tally</h2>
             <p class="card-desc">A habit tracker. Tap to log, see streaks build.</p>
-            <a class="card-link" href="#" target="_blank" rel="noopener noreferrer">App Store &#8594;</a>
+            <!-- TODO: Replace with real App Store URL -->
+            <a class="card-link" href="https://apps.apple.com/app/tally/id000000000" target="_blank" rel="noopener noreferrer">App Store &#8594;</a>
           </div>
         </div>
 
-        <div class="card">
-          <img class="card-icon" src="icons/placeholder.png" alt="Project Name icon" width="56" height="56">
+        <div class="card card--placeholder">
+          <div class="card-icon-placeholder">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5C5C66" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+            </svg>
+          </div>
           <div class="card-body">
-            <h2 class="card-name">Project Name</h2>
-            <p class="card-desc">Description of the web project goes here.</p>
-            <a class="card-link" href="#" target="_blank" rel="noopener noreferrer">View Site &#8594;</a>
+            <h2 class="card-name">Web Project</h2>
+            <p class="card-desc">A new web project is in the works.</p>
+            <span class="card-badge">Coming soon</span>
           </div>
         </div>
 
-        <div class="card">
-          <img class="card-icon" src="icons/placeholder.png" alt="Project Name icon" width="56" height="56">
+        <div class="card card--placeholder">
+          <div class="card-icon-placeholder">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5C5C66" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+            </svg>
+          </div>
           <div class="card-body">
-            <h2 class="card-name">Project Name</h2>
-            <p class="card-desc">Description of the web project goes here.</p>
-            <a class="card-link" href="#" target="_blank" rel="noopener noreferrer">View Site &#8594;</a>
+            <h2 class="card-name">Web Project</h2>
+            <p class="card-desc">Another web project on the way.</p>
+            <span class="card-badge">Coming soon</span>
           </div>
         </div>
 
