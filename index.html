@@ -202,41 +202,6 @@
       outline-offset: 2px;
     }
 
-    /* ---- Placeholder Card ---- */
-    .card.card--placeholder {
-      opacity: 0.5;
-      border-style: dashed;
-    }
-
-    .card.card--placeholder:hover {
-      border-color: var(--border);
-      opacity: 0.5;
-    }
-
-    .card--placeholder .card-icon-placeholder {
-      width: 56px;
-      height: 56px;
-      border-radius: var(--radius-icon);
-      background: var(--bg-elevated);
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .card--placeholder .card-badge {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      background: var(--bg-elevated);
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin-top: 4px;
-    }
-
     /* ---- Footer ---- */
     footer {
       text-align: center;
@@ -348,33 +313,21 @@
           </div>
         </div>
 
-        <div class="card card--placeholder">
-          <div class="card-icon-placeholder">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5C5C66" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="2" y1="12" x2="22" y2="12"/>
-              <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
-            </svg>
-          </div>
+        <div class="card">
+          <img class="card-icon" src="icons/digitaldjpool.png" alt="Digital DJ Pool app icon" width="56" height="56">
           <div class="card-body">
-            <h2 class="card-name">Web Project</h2>
-            <p class="card-desc">A new web project is in the works.</p>
-            <span class="card-badge">Coming soon</span>
+            <h2 class="card-name">Digital DJ Pool</h2>
+            <p class="card-desc">Independent music streaming and discovery for DJs. Curated weekly drops across 40+ genres.</p>
+            <a class="card-link" href="https://digitaldjpool.com" target="_blank" rel="noopener noreferrer">Visit Site &#8594;</a>
           </div>
         </div>
 
-        <div class="card card--placeholder">
-          <div class="card-icon-placeholder">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5C5C66" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="2" y1="12" x2="22" y2="12"/>
-              <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
-            </svg>
-          </div>
+        <div class="card">
+          <img class="card-icon" src="icons/mydjcloud.png" alt="My DJ Cloud app icon" width="56" height="56">
           <div class="card-body">
-            <h2 class="card-name">Web Project</h2>
-            <p class="card-desc">Another web project on the way.</p>
-            <span class="card-badge">Coming soon</span>
+            <h2 class="card-name">My DJ Cloud</h2>
+            <p class="card-desc">Automatic cloud backup for DJ libraries. Works with Serato, Rekordbox, and Virtual DJ.</p>
+            <a class="card-link" href="https://mydj.cloud" target="_blank" rel="noopener noreferrer">Visit Site &#8594;</a>
           </div>
         </div>
 
