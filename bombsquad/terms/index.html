@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#151926">
+    <link rel="icon" type="image/svg+xml" href="/bombsquad/favicon.svg">
+    <title>Terms of Service - Bombsquad</title>
+    <link rel="stylesheet" href="/bombsquad/landing.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .legal-page {
+            min-height: 100vh;
+            background: var(--bg-dark);
+            padding: 2rem 1rem;
+        }
+        .legal-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .legal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .legal-header a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .legal-header a:hover {
+            color: var(--text-primary);
+        }
+        .legal-header h1 {
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin: 0;
+        }
+        .legal-content {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 2rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .legal-content h3 {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+        .legal-content h3:first-child {
+            margin-top: 0;
+        }
+        .legal-content p {
+            margin: 0 0 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="legal-page">
+        <div class="legal-container">
+            <div class="legal-header">
+                <a href="/bombsquad">
+                    <span>←</span>
+                    <span>Back to Bombsquad</span>
+                </a>
+                <h1>Terms of Service</h1>
+            </div>
+            <div class="legal-content" id="legal-content">
+                <p>Loading...</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="footer-logo">💣</span>
+                <span class="footer-name">Bombsquad</span>
+            </div>
+            <div class="footer-links">
+                <a href="/bombsquad/terms">Terms of Service</a>
+                <a href="/bombsquad/privacy">Privacy Policy</a>
+            </div>
+            <p class="footer-copyright">&copy; 2026 Bombsquad. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        async function loadTermsOfService() {
+            try {
+                const response = await fetch('/api/v1/legal/terms');
+                const data = await response.json();
+
+                const container = document.getElementById('legal-content');
+                let html = `<p>${data.intro}</p>`;
+
+                for (const section of data.sections) {
+                    html += `<h3>${section.heading}</h3>`;
+                    html += `<p>${section.content}</p>`;
+                    if (section.list && section.list.length > 0) {
+                        html += '<ul>';
+                        for (const item of section.list) {
+                            html += `<li>${item}</li>`;
+                        }
+                        html += '</ul>';
+                    }
+                }
+
+                container.innerHTML = html;
+            } catch (error) {
+                console.error('Failed to load terms of service:', error);
+                document.getElementById('legal-content').innerHTML =
+                    '<p>Failed to load terms of service. Please try again later.</p>';
+            }
+        }
+
+        loadTermsOfService();
+    </script>
+</body>
+</html>

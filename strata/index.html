@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strata — Minesweeper. Unboxed.</title>
+
+<!-- OG Meta Tags -->
+<meta property="og:title" content="Strata — Minesweeper. Unboxed.">
+<meta property="og:description" content="Classic minesweeper on procedurally generated, irregularly shaped grids. Small boards, big cells, designed for your thumbs. Every puzzle is a different shape.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="BASE_URL_PLACEHOLDER">
+<meta name="description" content="Classic minesweeper on procedurally generated, irregularly shaped grids. Small boards, big cells, designed for your thumbs. Every puzzle is a different shape.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #121214;
+  --surface: #1C1C20;
+  --surface-alt: #26262B;
+  --text: #EDECEA;
+  --text-secondary: #9C9890;
+  --text-tertiary: #6B6860;
+  --border: #36363C;
+  --primary: #2DD4CF;
+  --primary-hover: #14B8B3;
+  --accent: #F87171;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* Hero */
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px 48px;
+  min-height: 85vh;
+}
+
+.logo-mark {
+  margin-bottom: 32px;
+}
+
+.hero h1 {
+  font-size: 56px;
+  letter-spacing: -2px;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.tagline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+}
+
+.description {
+  font-size: 17px;
+  color: var(--text-secondary);
+  max-width: 480px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--primary);
+  color: var(--bg);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.cta-button:hover {
+  background: var(--primary-hover);
+}
+
+.cta-button svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Features */
+.features {
+  padding: 64px 24px;
+}
+
+.features .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.feature {
+  text-align: center;
+  padding: 24px 16px;
+}
+
+.feature-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+}
+
+.feature-text {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 16px;
+}
+
+.footer-links a {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+.footer-copy {
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero {
+    padding: 60px 20px 40px;
+    min-height: 80vh;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+    letter-spacing: -1.5px;
+  }
+
+  .tagline {
+    font-size: 17px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .features .container {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+</style>
+</head>
+<body>
+<style>.mk-nav{padding:14px 20px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:13px;font-weight:500;position:relative;z-index:99}.mk-nav a{color:inherit;opacity:.55;text-decoration:none;transition:opacity .15s}.mk-nav a:hover{opacity:1}</style>
+<nav class="mk-nav"><a href="/">&larr; mkships</a></nav>
+
+
+<section class="hero">
+  <!-- Logo mark: 6-cell irregular grid -->
+  <div class="logo-mark">
+    <svg width="72" height="72" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="4" y="4" width="16" height="16" rx="3" fill="#2DD4CF"/>
+      <rect x="24" y="4" width="16" height="16" rx="3" fill="#2DD4CF" opacity="0.7"/>
+      <rect x="4" y="24" width="16" height="16" rx="3" fill="#2DD4CF" opacity="0.7"/>
+      <rect x="24" y="24" width="16" height="16" rx="3" fill="#2DD4CF" opacity="0.5"/>
+      <rect x="44" y="24" width="16" height="16" rx="3" fill="#2DD4CF" opacity="0.35"/>
+      <rect x="24" y="44" width="16" height="16" rx="3" fill="#2DD4CF" opacity="0.35"/>
+    </svg>
+  </div>
+
+  <h1>Strata</h1>
+  <p class="tagline">Minesweeper. Unboxed.</p>
+
+  <p class="description">
+    The minesweeper you already know, on grids you've never seen. Irregular shapes, procedurally generated. Small boards, big cells, built for your thumbs. No two puzzles are the same shape.
+  </p>
+
+  <a href="https://apps.apple.com/us/app/strata-minesweeper/id6759453995" class="cta-button">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    Download on the App Store
+  </a>
+</section>
+
+<section class="features">
+  <div class="container">
+    <div class="feature">
+      <div class="feature-label">Irregular</div>
+      <p class="feature-text">Every grid is a different shape. Corridors, pockets, asymmetry. No two boards alike.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-label">Mobile-first</div>
+      <p class="feature-text">Big cells, one-handed play. No pinch-to-zoom. No mis-taps. Designed for thumbs.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-label">Classic rules</div>
+      <p class="feature-text">Same minesweeper logic you know. Tap to reveal, hold to flag. Nothing to relearn.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/strata/privacy">Privacy</a>
+    <a href="/strata/terms">Terms</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 Strata</p>
+</footer>
+
+</body>
+</html>
