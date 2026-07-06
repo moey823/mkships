@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lift — Clean Your Clipboard</title>
+<meta name="description" content="Every link you copy carries invisible trackers. Lift strips them automatically. Also extracts text from screenshots. Private by design.">
+<meta property="og:title" content="Lift — Clean Your Clipboard">
+<meta property="og:description" content="Your clipboard, cleaned. Strip tracking parameters from links. Extract text from screenshots. Everything stays on your device.">
+<meta property="og:type" content="website">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lift — Clean Your Clipboard">
+<meta name="twitter:description" content="Your clipboard, cleaned. Strip tracking parameters from links. Extract text from screenshots.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23059669%22%2F%3E%3Cpath%20d%3D%22M9%2022V10h2v10h8v2H9z%22%20fill%3D%22%23FFFFFF%22%2F%3E%3C%2Fsvg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F8FAF9;
+  --surface: #ECFDF5;
+  --surface-raised: #FFFFFF;
+  --border: #D1E7DD;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-tertiary: #94A3B8;
+  --brand-primary: #059669;
+  --brand-primary-hover: #047857;
+  --brand-primary-muted: #D1FAE5;
+  --brand-secondary: #0F172A;
+  --brand-accent: #F59E0B;
+  --brand-accent-hover: #D97706;
+  --brand-accent-muted: #FEF3C7;
+  --success: #059669;
+  --success-muted: #D1FAE5;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0C1222;
+    --surface: #131B2E;
+    --surface-raised: #1E293B;
+    --border: #2D3F55;
+    --text-primary: #F1F5F9;
+    --text-secondary: #94A3B8;
+    --text-tertiary: #64748B;
+    --brand-primary: #34D399;
+    --brand-primary-hover: #6EE7B7;
+    --brand-primary-muted: #064E3B;
+    --brand-secondary: #E2E8F0;
+    --brand-accent: #FBBF24;
+    --brand-accent-hover: #F59E0B;
+    --brand-accent-muted: #422006;
+    --success: #34D399;
+    --success-muted: #064E3B;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, #059669 0%, #047857 50%, #064E3B 100%);
+  padding: 80px 24px 96px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+  .hero {
+    background: linear-gradient(135deg, #064E3B 0%, #0C1222 80%);
+  }
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  pointer-events: none;
+}
+
+.hero-logo {
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.hero .tagline {
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 40px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.hero .app-store-badge {
+  display: inline-block;
+  transition: opacity 0.15s;
+}
+
+.hero .app-store-badge:hover {
+  opacity: 0.85;
+}
+
+.hero .app-store-badge img {
+  height: 54px;
+  width: auto;
+}
+
+/* ===== FEATURES ===== */
+.features {
+  padding: 80px 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.features-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--brand-primary);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.features-heading {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-align: center;
+  margin-bottom: 48px;
+  color: var(--text-primary);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.feature-icon {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-card h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.feature-card p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ===== HOW IT WORKS ===== */
+.how-it-works {
+  padding: 80px 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.how-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--brand-primary);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.how-heading {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-align: center;
+  margin-bottom: 48px;
+  color: var(--text-primary);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+  position: relative;
+}
+
+.step {
+  text-align: center;
+  position: relative;
+}
+
+.step-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--brand-primary);
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.step-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-lg);
+  background: var(--brand-primary-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.step h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.step p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ===== APP PREVIEW ===== */
+.preview {
+  padding: 40px 24px 80px;
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.preview-card {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  gap: 14px;
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+.preview-thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.preview-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.preview-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.preview-card-cleaned {
+  border-left: 3px solid var(--brand-primary);
+}
+
+.preview-meta-cleaned {
+  color: var(--brand-primary);
+}
+
+.preview-card-pinned {
+  border-left: 3px solid var(--brand-accent);
+}
+
+.preview-meta-pinned {
+  color: var(--brand-accent);
+}
+
+.preview-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-tertiary);
+  text-align: center;
+  margin-top: 16px;
+}
+
+/* ===== CTA ===== */
+.cta {
+  padding: 64px 24px;
+  text-align: center;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.cta-heading {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.cta-body {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.cta .app-store-badge {
+  display: inline-block;
+  transition: opacity 0.15s;
+}
+
+.cta .app-store-badge:hover {
+  opacity: 0.85;
+}
+
+.cta .app-store-badge img {
+  height: 54px;
+  width: auto;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.footer-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.footer-links {
+  margin-bottom: 16px;
+}
+
+.footer-links a {
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  margin: 0 12px;
+  transition: color 0.15s;
+}
+
+.footer-links a:hover {
+  color: var(--brand-primary);
+}
+
+.footer-copy {
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 20px 72px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero .tagline {
+    font-size: 16px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .features-heading,
+  .how-heading {
+    font-size: 24px;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .feature-card {
+    padding: 24px 20px;
+  }
+
+  .cta-heading {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .features,
+  .how-it-works {
+    padding: 60px 20px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-logo">
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="64" height="64" rx="14" fill="rgba(255,255,255,0.15)"/>
+      <path d="M18 44V20h4v20h16v4H18z" fill="#FFFFFF"/>
+      <rect x="30" y="20" width="16" height="3" rx="1.5" fill="#FFFFFF" opacity="0.6"/>
+      <rect x="30" y="27" width="12" height="3" rx="1.5" fill="#FFFFFF" opacity="0.6"/>
+      <rect x="30" y="34" width="14" height="3" rx="1.5" fill="#FFFFFF" opacity="0.6"/>
+    </svg>
+  </div>
+  <h1>Lift</h1>
+  <div class="tagline">Your clipboard, cleaned. Lift strips tracking parameters from links and extracts text from screenshots — automatically.</div>
+  <a class="app-store-badge" href="https://apps.apple.com/app/lift-clean-your-clipboard" target="_blank" rel="noopener noreferrer">
+    <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+  </a>
+</section>
+
+<!-- ===== VALUE PROPOSITION ===== -->
+<section class="features">
+  <div class="features-label">Why Lift</div>
+  <h2 class="features-heading">Copy a link. Open Lift. Paste clean.</h2>
+  <div class="features-grid">
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/>
+          <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
+        </svg>
+      </div>
+      <h3>Auto-Clean Links</h3>
+      <p>Every link you copy carries invisible trackers. Lift strips 50+ tracking parameters and copies the clean link back to your clipboard.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M8 3v3"/><path d="M16 3v3"/>
+          <path d="M3 8h3"/><path d="M3 16h3"/>
+          <path d="M18 8h3"/><path d="M18 16h3"/>
+          <path d="M8 18v3"/><path d="M16 18v3"/>
+        </svg>
+      </div>
+      <h3>Screenshot to Text</h3>
+      <p>Take a screenshot of anything. Open Lift and the text is extracted and ready to copy — no retyping.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0110 0v4"/>
+        </svg>
+      </div>
+      <h3>Private by Design</h3>
+      <p>Everything stays on your device. No accounts, no cloud, no data leaves your phone.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how-it-works">
+  <div class="how-label">How It Works</div>
+  <h2 class="how-heading">Three steps. Under five seconds.</h2>
+  <div class="steps">
+
+    <div class="step">
+      <div class="step-number">01</div>
+      <div class="step-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="9" width="11" height="11" rx="2"/>
+          <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+        </svg>
+      </div>
+      <h3>Copy a link</h3>
+      <p>From any app, any website. The tracking junk comes along for the ride.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">02</div>
+      <div class="step-icon">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="64" height="64" rx="14" fill="var(--brand-primary)"/>
+          <path d="M18 44V20h4v20h16v4H18z" fill="#FFFFFF"/>
+          <rect x="30" y="20" width="16" height="3" rx="1.5" fill="#FFFFFF" opacity="0.6"/>
+          <rect x="30" y="27" width="12" height="3" rx="1.5" fill="#FFFFFF" opacity="0.6"/>
+          <rect x="30" y="34" width="14" height="3" rx="1.5" fill="#FFFFFF" opacity="0.6"/>
+        </svg>
+      </div>
+      <h3>Open Lift</h3>
+      <p>Trackers are stripped automatically. Clipboard is cleaned.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">03</div>
+      <div class="step-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 6L9 17l-5-5"/>
+        </svg>
+      </div>
+      <h3>Paste clean</h3>
+      <p>The clean link is already on your clipboard. Paste anywhere.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== APP PREVIEW ===== -->
+<section class="preview">
+  <div class="preview-card preview-card-cleaned">
+    <div class="preview-thumb">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/>
+        <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
+      </svg>
+    </div>
+    <div class="preview-body">
+      <div class="preview-text">nytimes.com/2026/02/article-title</div>
+      <div class="preview-meta preview-meta-cleaned">Cleaned &middot; 3 trackers stripped</div>
+    </div>
+  </div>
+
+  <div class="preview-card">
+    <div class="preview-thumb">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <path d="M8 3v3"/><path d="M16 3v3"/>
+        <path d="M3 8h3"/><path d="M3 16h3"/>
+        <path d="M18 8h3"/><path d="M18 16h3"/>
+        <path d="M8 18v3"/><path d="M16 18v3"/>
+      </svg>
+    </div>
+    <div class="preview-body">
+      <div class="preview-text">Gate B42 — Boarding starts 10:15am. Please have your boarding pass ready.</div>
+      <div class="preview-meta">2 min ago &middot; Expires in 47h</div>
+    </div>
+  </div>
+
+  <div class="preview-card preview-card-pinned">
+    <div class="preview-thumb">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-tertiary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <path d="M8 3v3"/><path d="M16 3v3"/>
+        <path d="M3 8h3"/><path d="M3 16h3"/>
+        <path d="M18 8h3"/><path d="M18 16h3"/>
+        <path d="M8 18v3"/><path d="M16 18v3"/>
+      </svg>
+    </div>
+    <div class="preview-body">
+      <div class="preview-text">Wi-Fi: HomeNetwork_5G Password: xK9#mP2v</div>
+      <div class="preview-meta preview-meta-pinned">Pinned</div>
+    </div>
+  </div>
+
+  <div class="preview-label">Sample inbox</div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta">
+  <h2 class="cta-heading">Stop sharing dirty links.</h2>
+  <p class="cta-body">Download Lift — free on the App Store.</p>
+  <a class="app-store-badge" href="https://apps.apple.com/app/lift-clean-your-clipboard" target="_blank" rel="noopener noreferrer">
+    <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+  </a>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-brand">
+    <svg width="24" height="24" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="64" height="64" rx="14" fill="var(--brand-primary)"/>
+      <path d="M18 44V20h4v20h16v4H18z" fill="#FFFFFF"/>
+      <rect x="30" y="20" width="16" height="3" rx="1.5" fill="#FFFFFF" opacity="0.6"/>
+      <rect x="30" y="27" width="12" height="3" rx="1.5" fill="#FFFFFF" opacity="0.6"/>
+      <rect x="30" y="34" width="14" height="3" rx="1.5" fill="#FFFFFF" opacity="0.6"/>
+    </svg>
+    <span class="footer-name">Lift — Clean Your Clipboard</span>
+  </div>
+  <div class="footer-links">
+    <a href="/lift/privacy">Privacy Policy</a>
+    <a href="/lift/terms">Terms of Service</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 Lift. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
