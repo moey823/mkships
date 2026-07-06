@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fuel Gauge — Terms of Service</title>
+<meta name="description" content="Terms of service for Fuel Gauge (Boat Fuel Gauge &amp; Timer), the iOS and Apple Watch fuel-estimate app.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%230A2236%22/%3E%3Cpath%20d%3D%22M6.5%2020%20A9.5%209.5%200%200%201%2025.5%2020%22%20fill%3D%22none%22%20stroke%3D%22%233FA7FF%22%20stroke-width%3D%223.4%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2216%22%20y1%3D%2220%22%20x2%3D%2210%22%20y2%3D%2215%22%20stroke%3D%22%23F5F9FF%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22/%3E%3Ccircle%20cx%3D%2216%22%20cy%3D%2220%22%20r%3D%222.2%22%20fill%3D%22%23F5F9FF%22/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FFFFFF;
+  --surface: #F2F7FC;
+  --border: #DCE6F0;
+  --text-primary: #0B1A2B;
+  --text-secondary: #4A5D70;
+  --text-tertiary: #93A4B6;
+  --brand-primary: #1273D4;
+  --brand-primary-hover: #0E5DAD;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #08151F;
+    --surface: #0F2435;
+    --border: #21425C;
+    --text-primary: #EAF2FA;
+    --text-secondary: #9FB4C7;
+    --text-tertiary: #6A8299;
+    --brand-primary: #3FA7FF;
+    --brand-primary-hover: #74C0FF;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: opacity 0.15s;
+}
+
+.header a:hover { opacity: 0.8; }
+
+.header-name { font-size: 16px; font-weight: 600; }
+
+.content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.last-updated {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+ul {
+  list-style: none;
+  margin-bottom: 16px;
+  padding-left: 0;
+}
+
+ul li {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  padding: 4px 0 4px 20px;
+  position: relative;
+}
+
+ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+}
+
+.highlight-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--brand-primary);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+
+.highlight-box p {
+  margin-bottom: 0;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.footer {
+  padding: 32px 24px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.footer-links a {
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  margin: 0 12px;
+  transition: color 0.15s;
+}
+
+.footer-links a:hover { color: var(--brand-primary); }
+
+.footer-copy {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-top: 12px;
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <a href="/fuel-gauge">
+    <svg width="24" height="24" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="64" height="64" rx="14" fill="#0A2236"/>
+      <path d="M14 42 A20 20 0 0 1 24 22.9" fill="none" stroke="#FF453A" stroke-width="6" stroke-linecap="round"/>
+      <path d="M24 22.9 A20 20 0 0 1 44 22.9" fill="none" stroke="#FFB02E" stroke-width="6" stroke-linecap="round"/>
+      <path d="M44 22.9 A20 20 0 0 1 54 42" fill="none" stroke="#2FD45A" stroke-width="6" stroke-linecap="round"/>
+      <line x1="32" y1="42" x2="19" y2="34" stroke="#F5F9FF" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="32" cy="42" r="4" fill="#F5F9FF"/>
+    </svg>
+    <span class="header-name">Fuel Gauge</span>
+  </a>
+</header>
+
+<main class="content">
+  <h1 class="page-title">Terms of Service</h1>
+  <div class="last-updated">Last updated: June 23, 2026</div>
+
+  <h2>Agreement to Terms</h2>
+  <p>By downloading, installing, or using Fuel Gauge (&ldquo;the App&rdquo;), you agree to these Terms of Service (&ldquo;Terms&rdquo;). If you do not agree to these Terms, do not use the App.</p>
+
+  <h2>Description of Service</h2>
+  <p>Fuel Gauge (listed on the App Store as &ldquo;Boat Fuel Gauge &amp; Timer&rdquo;) is an iOS and Apple Watch utility that estimates remaining fuel by timing engine run sessions and learning a gallons-per-hour burn rate from your fill-ups. It can also record a GPS track of a run. The App processes everything locally on your device. There is no server-side component, no user accounts, and no cloud storage.</p>
+
+  <div class="highlight-box">
+    <p>The App provides an <strong>approximate estimate, not a measurement from a fuel sensor</strong>. Do not rely on it as your sole means of knowing how much fuel remains. Always carry an adequate fuel reserve, verify your actual fuel level, and follow safe boating practices.</p>
+  </div>
+
+  <h2>Nature of the Fuel Estimate</h2>
+  <p>The App computes fuel left as: tank size &minus; (engine run time &times; gallons-per-hour). This is an estimate that depends on the accuracy of the tank size and burn rate you provide or that the App learns, and on the assumption that your engine's consumption tracks run time. Real consumption varies with throttle, load, current, sea state, and engine condition. The App displays time-remaining as a range to reflect this uncertainty.</p>
+  <p>You are solely responsible for fuel planning and for ensuring you have enough fuel for any trip. Never use the App as a navigation or safety device.</p>
+
+  <h2>Use of the App</h2>
+  <p>You may use Fuel Gauge for any lawful purpose. You agree not to:</p>
+  <ul>
+    <li>Reverse engineer, decompile, or disassemble the App</li>
+    <li>Modify, adapt, or create derivative works based on the App</li>
+    <li>Use the App in any way that violates applicable local, state, national, or international law</li>
+    <li>Distribute, license, or sell the App or any copies of it</li>
+  </ul>
+
+  <h2>Location Access</h2>
+  <p>GPS trip recording requires &ldquo;While Using the App&rdquo; location access, which you grant through iOS system permissions. Location is used only while an engine run is active and is stored only on your device. You can revoke location access at any time in your device's Settings; doing so simply disables route maps and does not affect the fuel estimate.</p>
+
+  <h2>Data and Privacy</h2>
+  <p>All data created by Fuel Gauge is stored locally on your device. The App does not collect, transmit, or store any personal data on external servers. For full details, see our <a href="/fuel-gauge/privacy" style="color: var(--brand-primary); text-decoration: none;">Privacy Policy</a>.</p>
+
+  <h2>Your Data and Backups</h2>
+  <p>The App keeps your history in an append-only log on your device and provides a JSON export so you can save your own copy. Importing a previously exported file merges by record and never overwrites newer data. You are responsible for exporting or backing up your data; the developers are not responsible for data lost due to device failure, loss, or uninstalling the App.</p>
+
+  <h2>Intellectual Property</h2>
+  <p>The App, including its design, code, graphics, logo, and content, is owned by the developers of Fuel Gauge and is protected by applicable intellectual property laws. These Terms do not grant you any rights to the App's intellectual property beyond the limited license to use the App as described here. The data you create — your runs, fills, and tracks — belongs to you.</p>
+
+  <h2>Disclaimer of Warranties</h2>
+  <p>Fuel Gauge is provided &ldquo;as is&rdquo; and &ldquo;as available&rdquo; without warranties of any kind, whether express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+  <p>The App does not guarantee the accuracy of any fuel estimate, range, time-remaining, distance, or speed figure. These are calculated values that depend on your inputs and on real-world conditions outside the App's knowledge.</p>
+
+  <h2>Limitation of Liability</h2>
+  <p>To the fullest extent permitted by applicable law, the developers of Fuel Gauge shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of data, use, or profits, arising out of or in connection with your use of the App. This includes, without limitation, any loss, damage, injury, or being stranded resulting from reliance on the App's fuel estimate or any other figure it displays.</p>
+  <p>Since Fuel Gauge processes data locally and does not transmit data externally, the developers are not responsible for the security of data stored on your device. Device-level security (passcode, Face ID, encryption) is your responsibility.</p>
+
+  <h2>App Store Terms</h2>
+  <p>Your use of Fuel Gauge is also subject to Apple's App Store Terms of Service. In the event of a conflict between these Terms and Apple's terms, Apple's terms shall prevail with respect to your use of the App Store and Apple's services.</p>
+
+  <h2>Termination</h2>
+  <p>You may stop using Fuel Gauge at any time by deleting the App from your device. Deleting the App removes its locally stored data from that device. There is no account to close or data to request deletion of, since no data is stored externally.</p>
+
+  <h2>Changes to These Terms</h2>
+  <p>We may update these Terms from time to time. Updated terms will be posted at this URL. Continued use of the App after changes constitutes acceptance of the updated Terms.</p>
+
+  <h2>Governing Law</h2>
+  <p>These Terms are governed by and construed in accordance with the laws of the jurisdiction in which the App's developers are located, without regard to conflict of law principles.</p>
+
+  <h2>Contact</h2>
+  <p>If you have questions about these Terms, contact us at support@example.com.</p>
+</main>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="/fuel-gauge">Home</a>
+    <a href="/fuel-gauge/privacy">Privacy Policy</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 Fuel Gauge. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
