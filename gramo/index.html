@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gramo — Protein tracking in your own words</title>
+<meta name="description" content="Tell the app what you ate in your own words. Gramo tells you roughly how much protein that was — as a range — and whether you're on track. No barcodes, no food scales, no database.">
+<meta property="og:title" content="Gramo — Just say what you ate.">
+<meta property="og:description" content="Protein tracking without the tracking. Describe your food, get a protein estimate in seconds.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="BASE_URL_PLACEHOLDER">
+<meta property="og:image" content="BASE_URL_PLACEHOLDER/assets/images/icon.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gramo — Just say what you ate.">
+<meta name="twitter:description" content="Protein tracking without the tracking. Describe your food, get a protein estimate in seconds.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20width%3D%2264%22%20height%3D%2264%22%20viewBox%3D%220%200%2064%2064%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22%234A9E6E%22%2F%3E%3Ctext%20x%3D%2228%22%20y%3D%2235%22%20font-family%3D%22sans-serif%22%20font-size%3D%2238%22%20font-weight%3D%22700%22%20fill%3D%22white%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22central%22%3EG%3C%2Ftext%3E%3Ccircle%20cx%3D%2248%22%20cy%3D%2248%22%20r%3D%227%22%20fill%3D%22white%22%20opacity%3D%220.4%22%2F%3E%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-500: #4A9E6E;
+  --green-600: #3A8159;
+  --green-400: #6AB88A;
+  --green-100: #EAF5EE;
+  --green-50: #F4FAF6;
+  --warm-900: #1C1917;
+  --warm-800: #292524;
+  --warm-700: #44403C;
+  --warm-600: #57534E;
+  --warm-500: #78716C;
+  --warm-400: #A8A29E;
+  --warm-300: #D6D3D1;
+  --warm-200: #E7E5E4;
+  --warm-100: #F5F5F4;
+  --warm-50: #FAFAF9;
+  --white: #FFFFFF;
+  --accent: #E8913A;
+  --accent-light: #FDF3E7;
+
+  --bg: var(--warm-100);
+  --surface: var(--white);
+  --text-primary: var(--warm-900);
+  --text-secondary: var(--warm-700);
+  --text-muted: var(--warm-500);
+  --border: var(--warm-200);
+  --primary: var(--green-500);
+  --primary-hover: var(--green-600);
+  --primary-surface: var(--green-100);
+  --badge-bg: var(--green-100);
+  --badge-text: var(--green-600);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1C1917;
+    --surface: #292524;
+    --text-primary: #E7E5E4;
+    --text-secondary: #D6D3D1;
+    --text-muted: #A8A29E;
+    --border: #3D3835;
+    --primary: #6AB88A;
+    --primary-hover: #7FCCA0;
+    --primary-surface: #1A2E22;
+    --badge-bg: #1A2E22;
+    --badge-text: #6AB88A;
+    --accent: #F0A55C;
+    --accent-light: #2E2418;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-primary);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Hero ────────────────────────────────────────────── */
+
+.hero {
+  text-align: center;
+  padding: 80px 24px 72px;
+  background: linear-gradient(180deg, var(--primary-surface) 0%, var(--bg) 100%);
+}
+
+.hero-logo {
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.hero .tagline {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.hero .description {
+  font-size: 17px;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px 32px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+  .hero-cta { color: #1C1917; }
+}
+
+.hero-cta:hover {
+  background: var(--primary-hover);
+}
+
+.hero-cta svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ── Demo ────────────────────────────────────────────── */
+
+.demo {
+  padding: 64px 0;
+}
+
+.demo-card {
+  max-width: 420px;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.demo-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.demo-header-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.demo-header-total {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.demo-header-goal {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.demo-progress {
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.demo-progress-fill {
+  height: 100%;
+  width: 67%;
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+.demo-entries {
+  padding: 16px 24px;
+}
+
+.demo-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.demo-entry:last-child {
+  border-bottom: none;
+}
+
+.demo-entry-text {
+  font-size: 15px;
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.demo-entry-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  white-space: nowrap;
+  margin-left: 12px;
+}
+
+.demo-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+}
+
+.demo-input-field {
+  flex: 1;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  padding: 10px 14px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--text-muted);
+  outline: none;
+}
+
+.demo-input-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--primary);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── How It Works ────────────────────────────────────── */
+
+.how-it-works {
+  padding: 72px 0;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text-primary);
+  margin-bottom: 48px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.step {
+  text-align: center;
+  padding: 32px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.step-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--primary-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.step-number {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.step h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.step p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Features ────────────────────────────────────────── */
+
+.features {
+  padding: 72px 0;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.feature-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  background: var(--primary-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.feature-card h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.feature-card p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Social Proof ────────────────────────────────────── */
+
+.social-proof {
+  padding: 72px 0;
+}
+
+.quotes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.quote-card {
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.quote-text {
+  font-size: 15px;
+  color: var(--text-secondary);
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.quote-input {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 8px 12px;
+  background: var(--bg);
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.quote-result {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+}
+
+/* ── CTA ─────────────────────────────────────────────── */
+
+.cta-section {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.cta-section p {
+  font-size: 17px;
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+
+.footer {
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.footer-links a {
+  font-size: 14px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+.footer-copy {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .hero { padding: 56px 24px 48px; }
+  .hero h1 { font-size: 36px; }
+  .hero .tagline { font-size: 18px; }
+  .hero .description { font-size: 16px; }
+
+  .section-title { font-size: 26px; }
+
+  .steps { grid-template-columns: 1fr; gap: 16px; }
+  .feature-grid { grid-template-columns: 1fr; gap: 16px; }
+  .quotes { grid-template-columns: 1fr; gap: 16px; }
+
+  .cta-section h2 { font-size: 28px; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 30px; }
+  .demo-card { margin: 0 -8px; }
+}
+</style>
+</head>
+<body>
+<style>.mk-nav{padding:14px 20px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:13px;font-weight:500;position:relative;z-index:99}.mk-nav a{color:inherit;opacity:.55;text-decoration:none;transition:opacity .15s}.mk-nav a:hover{opacity:1}</style>
+<nav class="mk-nav"><a href="/">&larr; mkships</a></nav>
+
+
+<!-- ── Hero ──────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-logo">
+    <svg width="72" height="72" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="64" height="64" rx="16" fill="#4A9E6E"/>
+      <text x="28" y="34" font-family="DM Sans,sans-serif" font-size="34" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="central">G</text>
+      <circle cx="46" cy="46" r="8" fill="white" opacity="0.3"/>
+      <circle cx="46" cy="46" r="5" fill="white" opacity="0.45"/>
+      <circle cx="38" cy="50" r="2.5" fill="white" opacity="0.35"/>
+    </svg>
+  </div>
+  <h1>Gramo</h1>
+  <p class="tagline">Just say what you ate.</p>
+  <p class="description">Know your protein without the homework. No barcodes. No food scales. No picking from a database of 50 kinds of yogurt. Just describe your food in your own words and get a protein estimate in seconds.</p>
+  <a href="#download" class="hero-cta">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download on the App Store
+  </a>
+</section>
+
+<!-- ── Demo Card ─────────────────────────────────────────── -->
+<section class="demo">
+  <div class="container">
+    <div class="demo-card">
+      <div class="demo-header">
+        <p class="demo-header-label">Today's Protein</p>
+        <p class="demo-header-total">68-82g</p>
+        <p class="demo-header-goal">~75g of your 112g goal</p>
+        <div class="demo-progress">
+          <div class="demo-progress-fill"></div>
+        </div>
+      </div>
+      <div class="demo-entries">
+        <div class="demo-entry">
+          <span class="demo-entry-text">"Two eggs and toast"</span>
+          <span class="demo-entry-badge">18-22g</span>
+        </div>
+        <div class="demo-entry">
+          <span class="demo-entry-text">"Big chicken salad for lunch"</span>
+          <span class="demo-entry-badge">35-42g</span>
+        </div>
+        <div class="demo-entry">
+          <span class="demo-entry-text">"Greek yogurt with berries"</span>
+          <span class="demo-entry-badge">15-18g</span>
+        </div>
+      </div>
+      <div class="demo-input">
+        <div class="demo-input-field">What did you eat?</div>
+        <div class="demo-input-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── How It Works ──────────────────────────────────────── -->
+<section class="how-it-works">
+  <div class="container">
+    <p class="section-label">How It Works</p>
+    <h2 class="section-title">Three steps. Thirty seconds.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12c0 4.418-4.03 8-9 8-1.065 0-2.085-.156-3.04-.44L4 21l1.338-3.34C3.842 16.039 3 14.11 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/><line x1="12" y1="9" x2="12" y2="15"/><line x1="9" y1="12" x2="15" y2="12"/></svg>
+        </div>
+        <p class="step-number">Step 1</p>
+        <h3>Describe your food</h3>
+        <p>Type what you ate in your own words. "Two eggs and toast" or "big chicken salad" -- however you'd say it.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <p class="step-number">Step 2</p>
+        <h3>Get a protein range</h3>
+        <p>Our AI estimates the protein as a range in grams. The more specific you are, the tighter the range.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <p class="step-number">Step 3</p>
+        <h3>Track your progress</h3>
+        <p>Your daily total updates instantly. A simple progress bar shows whether you're on track for your personal goal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Features ──────────────────────────────────────────── -->
+<section class="features">
+  <div class="container">
+    <p class="section-label">Why Gramo</p>
+    <h2 class="section-title">Built for people who quit other trackers.</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" opacity="0.3"/><path d="M12 2a10 10 0 0 1 8.66 5"/><polyline points="9 12 12 15 20 7"/></svg>
+        </div>
+        <h3>30-second entries</h3>
+        <p>No barcodes, no food database, no searching through 50 types of yogurt. Describe your meal and move on.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <h3>Personalized goals</h3>
+        <p>Set your daily protein target based on your weight and activity level, or enter a custom number from your doctor or trainer.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Honest ranges, not false precision</h3>
+        <p>Every estimate is a range. "About 35-42g" is more honest and useful than a fake-precise "38.7g."</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M9 16l2 2 4-4"/></svg>
+        </div>
+        <h3>History at a glance</h3>
+        <p>A 7-day trend chart and scrollable history show your progress over time. Tap any day to see what you ate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Social Proof ──────────────────────────────────────── -->
+<section class="social-proof">
+  <div class="container">
+    <p class="section-label">Real Entries, Real Estimates</p>
+    <h2 class="section-title">This is the whole app.</h2>
+    <div class="quotes">
+      <div class="quote-card">
+        <p class="quote-input">"Leftover pasta and some chicken"</p>
+        <span class="quote-result">28-34g</span>
+        <p class="quote-text" style="margin-top:12px;">Wide range because "some chicken" is vague. Add amounts for tighter numbers.</p>
+      </div>
+      <div class="quote-card">
+        <p class="quote-input">"6oz grilled chicken breast"</p>
+        <span class="quote-result">38-42g</span>
+        <p class="quote-text" style="margin-top:12px;">Tight range because the description is specific. The precision is built in.</p>
+      </div>
+      <div class="quote-card">
+        <p class="quote-input">"Protein shake and a banana"</p>
+        <span class="quote-result">22-28g</span>
+        <p class="quote-text" style="margin-top:12px;">Compound meals work too. The AI estimates total protein across all items.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ────────────────────────────────────────────────── -->
+<section class="cta-section" id="download">
+  <div class="container">
+    <h2>Ready to know your protein?</h2>
+    <p>Protein tracking in your own words. No homework required.</p>
+    <a href="https://apps.apple.com/us/app/gramo/id6759345969" class="hero-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download on the App Store
+    </a>
+  </div>
+</section>
+
+<!-- ── Footer ────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="/gramo/privacy">Privacy Policy</a>
+      <a href="/gramo/terms">Terms of Use</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 Gramo. Made with care.</p>
+  </div>
+</footer>
+
+</body>
+</html>
