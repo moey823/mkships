@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Help &amp; support — Decrumb</title>
+  <meta name="description" content="Get help with Decrumb, Signal linking, cleaning rules, generated notes, optional cleanup, local storage, and current macOS build availability.">
+  <meta name="theme-color" content="#15171b">
+  <link rel="canonical" href="https://mkships.app/decrumb/support/">
+  <link rel="icon" type="image/svg+xml" href="/decrumb/icon.svg">
+  <link rel="stylesheet" href="/decrumb/style.css">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Help &amp; support — Decrumb">
+  <meta property="og:description" content="Get help with Decrumb, Signal linking, cleaning rules, generated notes, optional cleanup, local storage, and current macOS build availability.">
+  <meta property="og:url" content="https://mkships.app/decrumb/support/">
+  <meta property="og:image" content="https://mkships.app/decrumb/icon.png">
+  <meta property="og:image:alt" content="Decrumb app icon: a clean link with three small crumbs.">
+  <meta property="og:site_name" content="mkships">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="/decrumb/"><img src="/decrumb/icon.svg" alt="" width="38" height="38">Decrumb</a>
+    <nav class="site-nav" aria-label="Decrumb"><a href="/decrumb/">Overview</a><a href="/decrumb/download/">Download</a><a href="/decrumb/support/" aria-current="page">Support</a><a href="/decrumb/privacy/">Privacy</a></nav>
+  </header>
+  <main id="main" class="legal" tabindex="-1">
+<p class="eyebrow">Decrumb · Help &amp; support</p>
+<h1>A little help cleaning up.</h1>
+<p class="lead">Start with the answers below. For bugs or questions, use the public GitHub issue tracker.</p>
+<div class="callout"><h2>Report an issue</h2><p>Include your macOS version, app or source version, what you expected, and what happened. A made-up example link is usually enough to reproduce a cleaning problem.</p><p><strong>GitHub issues are public.</strong> Leave out real messages, contacts, private URLs, pairing QR codes, credentials, and the app’s runtime folder. Redact personal information in screenshots.</p><a class="button" href="https://github.com/moey823/decrumb/issues">Open GitHub issues ↗</a><p class="security-note">Found a security vulnerability? <a href="https://github.com/moey823/decrumb/security/advisories/new">Report it privately on GitHub</a> instead of opening a public issue.</p></div>
+<section aria-labelledby="setup-heading"><h2 id="setup-heading">Getting started</h2>
+<details><summary>Can I download and install the app yet?</summary><p>The macOS app is coming soon. Source downloads and developer build instructions are available now. The current packaged developer build has been validated on Apple silicon with macOS 27.0 only; it is not a notarized public release. See <a href="/decrumb/download/">Downloads</a>.</p></details>
+<details><summary>Does Decrumb replace Signal on my phone?</summary><p>No. Decrumb connects as an additional linked device. Your normal Signal app stays on your phone. In a source build, use Connect Signal and scan the QR code from Signal → Settings → Linked Devices → Link a New Device. A fresh code can be generated if the first expires.</p></details>
+<details><summary>Where do the cleaned links go?</summary><p>Only to Note to Self. Decrumb never sends an automated reply to a contact or group. Generated notes identify Decrumb, optionally include an available sender display name, and carry a searchable random code. Display names are not verified identity, and a visible code alone never authorizes deletion.</p></details>
+<details><summary>Why did a link not produce a note?</summary><p>Decrumb sends only links whose eligible tracking parameters changed. It ignores messages from before its first worker startup, messages over 24 hours old, outgoing/synced messages, and Note to Self. Disappearing messages, view-once content, spoilers, edits, story replies, and unsupported privacy metadata are excluded.</p><p>Selected-site rules, exclusions, explicit keep rules, and recognized signature parameters can also leave a link unchanged. Try a synthetic example in the local preview. Exceptional bursts or ambiguous sends can still lose work; delivery is not guaranteed.</p></details>
+<details><summary>Does Decrumb need my Mac to stay awake?</summary><p>Yes. Receiving and automatic cleanup require the worker running on an awake, online Mac while you are logged in. Quitting the menu bar interface leaves an active worker running. Use Pause to stop it. An optional start-at-login setting can start the interface and enabled worker when you log in.</p></details>
+<details><summary>Does Try a link send or open the link?</summary><p>No. The preview applies your draft rules locally. It does not fetch, send, or save the sample. Regular cleaning also does not visit or expand URLs.</p></details>
+</section>
+<section id="cleanup" aria-labelledby="cleanup-heading"><h2 id="cleanup-heading">Notes and optional cleanup</h2>
+<details><summary>Will Decrumb automatically remove my notes?</summary><p>Removal is manual by default. You can set a default lifetime of 1, 6, 12, or 23 hours for new notes, or choose a periodic sweep every 1, 6, or 12 hours. Individual notes can have their own lifetime or a Keep preference.</p><p>Changing the default lifetime affects newly sent notes. It does not remove deadlines already assigned to existing notes; choose Keep on a note to cancel its deadline. Keep also excludes it from periodic sweeps. An explicit manual removal request can still include a kept note.</p></details>
+<details><summary>Which notes can Decrumb remove?</summary><p>Only eligible notes for which this installation recorded an acknowledged send, bound to the same linked account. It does not search your conversation for matching words, links, sender names, or Decrumb codes. Personal notes and notes without a trustworthy local receipt are not cleanup targets.</p><p>Older notes, ambiguous sends, or lost receipt metadata may require manual removal in Signal.</p></details>
+<details><summary>Does “Removal requested” mean a note is gone everywhere?</summary><p>No. It means Signal CLI acknowledged a removal request. Signal’s supported delete-for-everyone window is 24 hours, and removal is best effort. Decrumb stops requests shortly before that limit to allow dispatch time.</p><p>A deleted-message marker may remain. Removal does not promise erasure from every device, quotes, saved copies, or backups. Deleting or editing the original incoming message does not retract a generated note.</p></details>
+<details><summary>What happens if my Mac sleeps or I pause cleaning?</summary><p>Automatic cleanup also pauses. Sleeping, offline, or paused time can cause a note to miss the supported removal window. The app reports an old or unconfirmed request instead of treating it as successful.</p><p>An explicit manual removal action while paused attempts up to three requests. More can remain queued; repeat the action or resume the worker to continue. The action does not silently enable incoming-message processing.</p></details>
+<details><summary>What does Clear queued links do?</summary><p>It discards local, unattempted notes without removing anything already sent to Signal. Pause normally preserves valid queued notes; Discard queued links on pause is optional and off by default. Saving cleaning-rule changes clears pending links made under the previous rules.</p></details>
+</section>
+<section aria-labelledby="privacy-help-heading"><h2 id="privacy-help-heading">Privacy and access</h2>
+<details><summary>Where does the app keep its local data?</summary><p>Signal keys and state, configuration, temporary pairing images, the plaintext outbox, and content-free receipt metadata are stored in the app’s protected runtime directory. Permissions restrict access but do not encrypt the folder. Read the <a href="/decrumb/privacy/">privacy policy</a> before linking an account.</p></details>
+<details><summary>How do I revoke access to my Signal account?</summary><p>In Signal on your phone, open Linked Devices and unlink Decrumb’s device. Pause or stop the local worker too. Unlinking does not promise deletion of local files or notes already delivered to your other devices. Do not remove another linked device by mistake.</p></details>
+<details><summary>Is this an official Signal app?</summary><p>No. Decrumb is an independent, unofficial open-source utility using the unofficial signal-cli client. It is not affiliated with or endorsed by Signal. Service changes may require updates.</p></details>
+</section>
+  </main>
+  <footer><div class="footer-links"><a href="/">← mkships</a><a href="/decrumb/download/">Download</a><a href="/decrumb/support/">Support</a><a href="/decrumb/privacy/">Privacy</a><a href="/decrumb/terms/">Terms</a><a href="https://github.com/moey823/decrumb">GitHub ↗</a></div><span>© 2026 Matthew Kearney</span></footer>
+  <p class="independent">Decrumb is an independent, unofficial utility. It is not affiliated with or endorsed by Signal.</p>
+</body>
+</html>
