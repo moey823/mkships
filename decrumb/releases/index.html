@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Decrumb release notes — What’s new</title>
-  <meta name="description" content="See what changed in Decrumb for Mac, Raspberry Pi, and Umbrel, including private local diagnostics in RC6.">
+  <meta name="description" content="See what changed in Decrumb for Mac, Raspberry Pi, and Umbrel, including the first stable v1 release and private local diagnostics.">
   <meta name="theme-color" content="#15171b">
   <link rel="canonical" href="https://mkships.app/decrumb/releases/">
   <link rel="icon" type="image/svg+xml" href="/decrumb/icon.svg">
   <link rel="stylesheet" href="/decrumb/style.css">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Decrumb release notes — What’s new">
-  <meta property="og:description" content="See what changed in Decrumb for Mac, Raspberry Pi, and Umbrel, including private local diagnostics in RC6.">
+  <meta property="og:description" content="See what changed in Decrumb for Mac, Raspberry Pi, and Umbrel, including the first stable v1 release and private local diagnostics.">
   <meta property="og:url" content="https://mkships.app/decrumb/releases/">
   <meta property="og:image" content="https://mkships.app/decrumb/icon.png">
   <meta property="og:image:alt" content="Decrumb app icon: a clean link with three small crumbs.">
@@ -27,13 +27,19 @@
   <main id="main" class="legal" tabindex="-1">
 <p class="eyebrow">Decrumb · What’s new</p>
 <h1>Small changes.<br>A little less friction.</h1>
-<p class="lead">Release notes for Mac, Raspberry Pi, and Umbrel. Decrumb is still in early testing.</p>
-<nav class="toc" aria-label="Release notes"><a href="#rc6">RC6 · Local diagnostics</a><a href="#rc5">RC5 · Phone commands</a><a href="#rc4">RC4 · Raspberry Pi</a></nav>
-<section id="rc6"><p class="status">Latest · 1.0.0 RC6 · September 21, 2026</p><h2>Help without oversharing.</h2>
+<p class="lead">Release notes for Mac, Raspberry Pi, and Umbrel.</p>
+<nav class="toc" aria-label="Release notes"><a href="#v1">V1 · First stable release</a><a href="#rc6">RC6 · Local diagnostics</a><a href="#rc5">RC5 · Phone commands</a><a href="#rc4">RC4 · Raspberry Pi</a></nav>
+<section id="v1"><p class="status">Latest · 1.0.0 · September 21, 2026</p><h2>Decrumb v1 is here.</h2>
+<p>The first stable release brings together automatic Signal link cleaning, editable rules, optional phone commands, note removal controls, signed Mac updates, and private local diagnostics.</p>
+<p>V1 is the same tested build as RC6. If you already have RC6 (build 6), you already have v1. Older Mac installations can choose <strong>Check for Updates…</strong> in Decrumb. Your Signal connection and settings stay in place.</p>
+<p>Mac requires Apple silicon and macOS 26.4 or later. Raspberry Pi and Umbrel editions remain experimental.</p>
+<p><a href="https://github.com/moey823/decrumb/releases/tag/v1.0.0">Full v1 release, checksums and source ↗</a></p>
+<div class="actions"><a class="button" href="/decrumb/download/">Get Decrumb v1</a></div></section>
+<section id="rc6"><p class="status">1.0.0 RC6 · September 21, 2026</p><h2>Help without oversharing.</h2>
 <p>Troubleshooting now comes with a report you can inspect and share yourself. Nothing is uploaded automatically, and no telemetry service was added.</p>
 <ul><li><strong>Preview, then copy.</strong> Find Diagnostics in the Mac app or Umbrel dashboard, or run <code>decrumb diagnostics</code> on Pi.</li><li><strong>Useful, limited details.</strong> Reports contain versions, basic system information, local worker health, and recent error codes. Messages, links, contacts, account details, rules, activity counts, and exact event times stay out.</li><li><strong>Less logging.</strong> Successful link processing no longer writes timed entries. Old rotating logs are removed when the updated app or worker starts.</li><li><strong>Short local history.</strong> At most 128 error entries from seven UTC calendar days, pruned while Decrumb is active. Clear diagnostics without changing your Signal connection, settings, queue, or notes.</li></ul>
 <p><a href="/decrumb/support/#diagnostics">How diagnostics works →</a> · <a href="https://github.com/moey823/decrumb/releases/tag/v1.0.0-rc.6">Full release, checksums and source ↗</a></p>
-<div class="actions"><a class="button" href="/decrumb/download/">Get RC6</a></div>
+
 <p class="hint">On Mac, choose Check for Updates in Decrumb. Pi updates use the installer; Umbrel updates use its app controls. Existing pairing and settings are preserved. Mac requires Apple silicon and macOS 26.4 or later. Pi and Umbrel remain experimental.</p></section>
 <section id="rc5"><h2>1.0.0 RC5 · More reliable phone commands.</h2><p>Fixed a problem that could reject authentic commands from Note to Self. Phone commands remain optional and off by default for new installations. Mac, Pi, and Umbrel now use one shared release number.</p><p><a href="https://github.com/moey823/decrumb/releases/tag/v1.0.0-rc.5">Full RC5 release ↗</a></p></section>
 <section id="rc4"><h2>1.0.0 RC4 · Raspberry Pi and phone commands.</h2><p>Added the experimental Raspberry Pi edition and optional commands from your own Note to Self. Commands can show status or clean a link while Decrumb is running; they cannot run shell commands, read files, or visit links.</p><p><a href="https://github.com/moey823/decrumb/releases/tag/v1.0.0-rc.4">Full RC4 release ↗</a></p></section>
