@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Download Decrumb for Mac or Raspberry Pi</title>
-  <meta name="description" content="Get the Mac app or Raspberry Pi command-line edition. Keep the machine running and online to save clean Signal links to Note to Self.">
+  <title>Download Decrumb for Mac, Raspberry Pi, or Umbrel</title>
+  <meta name="description" content="Get the Mac app, Raspberry Pi service, or Umbrel browser dashboard. Keep the machine running and online to save clean Signal links to Note to Self.">
   <meta name="theme-color" content="#15171b">
   <link rel="canonical" href="https://mkships.app/decrumb/download/">
   <link rel="icon" type="image/svg+xml" href="/decrumb/icon.svg">
   <link rel="stylesheet" href="/decrumb/style.css">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Download Decrumb for Mac or Raspberry Pi">
-  <meta property="og:description" content="Get the Mac app or Raspberry Pi command-line edition. Keep the machine running and online to save clean Signal links to Note to Self.">
+  <meta property="og:title" content="Download Decrumb for Mac, Raspberry Pi, or Umbrel">
+  <meta property="og:description" content="Get the Mac app, Raspberry Pi service, or Umbrel browser dashboard. Keep the machine running and online to save clean Signal links to Note to Self.">
   <meta property="og:url" content="https://mkships.app/decrumb/download/">
   <meta property="og:image" content="https://mkships.app/decrumb/icon.png">
   <meta property="og:image:alt" content="Decrumb app icon: a clean link with three small crumbs.">
@@ -25,10 +25,10 @@
     <nav class="site-nav" aria-label="Decrumb"><a href="/decrumb/">Overview</a><a href="/decrumb/download/" aria-current="page">Download</a><a href="/decrumb/support/">Help</a><a href="/decrumb/privacy/">Privacy</a></nav>
   </header>
   <main id="main" class="legal" tabindex="-1">
-<p class="eyebrow">Decrumb for Mac and Raspberry Pi</p>
+<p class="eyebrow">Decrumb for Mac, Raspberry Pi, and Umbrel</p>
 <h1>Get Decrumb.</h1>
 <p class="lead">Clean the links you receive on Signal and save them to Note to Self automatically.</p>
-<nav class="toc" aria-label="Choose your platform"><a href="#mac">Mac app</a><a href="#pi">Raspberry Pi</a></nav>
+<nav class="toc" aria-label="Choose your platform"><a href="#mac">Mac app</a><a href="#pi">Raspberry Pi</a><a href="#umbrel">Umbrel</a></nav>
 <div id="mac" class="download-card">
   <p class="status">Early release · 1.0.0 RC5</p>
   <h2>Free for Apple silicon Macs.</h2>
@@ -50,6 +50,14 @@
 <div class="actions"><a class="button" href="https://github.com/moey823/decrumb/releases/download/v1.0.0-rc.5/Decrumb-1.0.0-5-linux-arm64.tar.gz">Download for Raspberry Pi</a></div>
 <p><a href="https://github.com/moey823/decrumb/blob/v1.0.0-rc.5/docs/RASPBERRY-PI.md">Installation and upgrade instructions ↗</a> · <a href="https://github.com/moey823/decrumb/releases/download/v1.0.0-rc.5/Decrumb-1.0.0-5-linux-arm64.tar.gz.sha256">Checksum</a></p>
 <p>Uses Python 3.11+ and qrencode. The installer downloads a separate, checksum-verified ARM64 Signal client from a community provider linked by signal-cli. ARM Linux checks pass; physical Pi and live Signal acceptance testing remain.</p>
+</section>
+<section id="umbrel"><h2>Umbrel.</h2>
+<p class="availability">Experimental community app · ARM64 and Intel/AMD 64-bit</p>
+<p>Run Decrumb on your always-on home server. Connect Signal, change rules, and check the helper from your browser. No terminal needed for normal setup.</p>
+<ol><li><strong>Add the community store.</strong> In Umbrel’s App Store, add <code>https://github.com/moey823/decrumb</code> as a community app store.</li><li><strong>Install and open Decrumb.</strong> Unlock it with the app password shown in Umbrel’s app details. Let the Signal helper finish downloading.</li><li><strong>Scan the QR code.</strong> In Signal on your phone, open Settings → Linked devices → Link a new device. Cleaning starts after linking.</li></ol>
+<p>If Decrumb already runs on another machine, pause that copy to avoid duplicate notes. Keep Umbrel online and allow at least 1 GB of free disk space for setup.</p>
+<div class="actions"><a class="button secondary" href="https://github.com/moey823/decrumb/blob/main/docs/UMBREL.md">Umbrel setup guide ↗</a></div>
+<p class="hint">Both container architectures pass automated tests. Real-device Signal pairing on Umbrel is still an acceptance check. This is a community package, not an official Umbrel App Store listing.</p>
 </section>
 <section id="updates">
   <h2>Already have Decrumb on Mac?</h2>
