@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Decrumb release notes — What’s new</title>
-  <meta name="description" content="See what changed in Decrumb for Mac, Raspberry Pi, and Umbrel, including the first stable v1 release and private local diagnostics.">
+  <meta name="description" content="Decrumb 1.1 adds a native Windows CLI preview and one shared version across Mac, Raspberry Pi, Umbrel, and Windows.">
   <meta name="theme-color" content="#15171b">
   <link rel="canonical" href="https://mkships.app/decrumb/releases/">
   <link rel="icon" type="image/svg+xml" href="/decrumb/icon.svg">
   <link rel="stylesheet" href="/decrumb/style.css">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Decrumb release notes — What’s new">
-  <meta property="og:description" content="See what changed in Decrumb for Mac, Raspberry Pi, and Umbrel, including the first stable v1 release and private local diagnostics.">
+  <meta property="og:description" content="Decrumb 1.1 adds a native Windows CLI preview and one shared version across Mac, Raspberry Pi, Umbrel, and Windows.">
   <meta property="og:url" content="https://mkships.app/decrumb/releases/">
   <meta property="og:image" content="https://mkships.app/decrumb/icon.png">
   <meta property="og:image:alt" content="Decrumb app icon: a clean link with three small crumbs.">
@@ -27,9 +27,16 @@
   <main id="main" class="legal" tabindex="-1">
 <p class="eyebrow">Decrumb · What’s new</p>
 <h1>Small changes.<br>A little less friction.</h1>
-<p class="lead">Release notes for Mac, Raspberry Pi, and Umbrel.</p>
-<nav class="toc" aria-label="Release notes"><a href="#v1">V1 · First stable release</a><a href="#rc6">RC6 · Local diagnostics</a><a href="#rc5">RC5 · Phone commands</a><a href="#rc4">RC4 · Raspberry Pi</a></nav>
-<section id="v1"><p class="status">Latest · 1.0.0 · September 21, 2026</p><h2>Decrumb v1 is here.</h2>
+<p class="lead">Release notes for Mac, Raspberry Pi, Umbrel, and Windows.</p>
+<nav class="toc" aria-label="Release notes"><a href="#v11">V1.1 · Windows CLI</a><a href="#v1">V1 · First stable release</a><a href="#rc6">RC6 · Local diagnostics</a><a href="#rc5">RC5 · Phone commands</a><a href="#rc4">RC4 · Raspberry Pi</a></nav>
+<section id="v11"><p class="status">Latest · 1.1.0 · Build 7 · September 21, 2026</p><h2>Decrumb, now with a Windows CLI.</h2>
+<p>Version 1.1 adds a native Windows command-line preview for technical users. All four platforms use the same Decrumb version, with matching Mac and Pi packages and a tested Umbrel image.</p>
+<ul><li><strong>Pair from PowerShell.</strong> Scan the terminal QR, then let Decrumb clean links in the background. Control it with status, pause, and resume commands.</li><li><strong>Choose login startup.</strong> Optional startup runs for your Windows user. Your PC must remain awake, online, and signed in.</li><li><strong>Keep state separate.</strong> The Windows CLI protects local account files with Windows permissions and contains its helper processes so they stop together.</li><li><strong>Use the same controls.</strong> Rules, previews, notes, optional phone commands, and private diagnostics are available from the CLI.</li></ul>
+<p>Windows is an unsigned source-build preview targeting Windows 11 on Intel/AMD 64-bit. Native tests and packaged smoke checks pass; live Signal pairing and sleep/wake acceptance remain. Pi and Umbrel remain experimental.</p>
+<p>Mac v1 and RC6 users can choose <strong>Check for Updates…</strong> to get build 7. Pi users rerun the installer; Umbrel users update through its app controls. Existing account state and settings are preserved.</p>
+<p><a href="https://github.com/moey823/decrumb/releases/tag/v1.1.0">Full v1.1 release, checksums and source ↗</a></p>
+<div class="actions"><a class="button" href="/decrumb/download/">Get Decrumb v1.1</a><a class="button secondary" href="/decrumb/download/#windows">Windows CLI setup</a></div></section>
+<section id="v1"><p class="status">1.0.0 · September 21, 2026</p><h2>Decrumb v1 is here.</h2>
 <p>The first stable release brings together automatic Signal link cleaning, editable rules, optional phone commands, note removal controls, signed Mac updates, and private local diagnostics.</p>
 <p>V1 is the same tested build as RC6. If you already have RC6 (build 6), you already have v1. Older Mac installations can choose <strong>Check for Updates…</strong> in Decrumb. Your Signal connection and settings stay in place.</p>
 <p>Mac requires Apple silicon and macOS 26.4 or later. Raspberry Pi and Umbrel editions remain experimental.</p>
