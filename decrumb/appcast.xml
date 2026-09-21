@@ -5,16 +5,16 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
         <title>Decrumb</title>
         <item>
             <title>1.0.0</title>
-            <pubDate>Sun, 20 Sep 2026 19:37:09 -0400</pubDate>
+            <pubDate>Sun, 20 Sep 2026 20:44:58 -0400</pubDate>
             <link>https://mkships.app/decrumb/</link>
-            <sparkle:version>2</sparkle:version>
+            <sparkle:version>3</sparkle:version>
             <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.4</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <enclosure url="https://github.com/moey823/decrumb/releases/download/v1.0.0-rc.2/Decrumb-1.0.0-2-arm64-update.zip" length="62106987" type="application/octet-stream" sparkle:edSignature="hRXCElJYdMD6lMGK+TeqcnhVmWp8sIpgDTqjJDi2CkVsO7aASjBVhpdn2qpipgp7frX9jEjTlOEnBExfwOFTDQ=="></enclosure>
+            <enclosure url="https://github.com/moey823/decrumb/releases/download/v1.0.0-rc.3/Decrumb-1.0.0-3-arm64-update.zip" length="62120775" type="application/octet-stream" sparkle:edSignature="+HdnHEaeRmrUzZz3hLTf5XoeEbtuIb+2X//7pAco7eR9tyTnlZUBcLftcQn/uorczrzH0avE0fCYk20RQsYgBg=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: DRKPM4bshsiGdJcwJ7x8xxS8LNZaDJvyozw4bcxftG8mRZNHo170jFu4MplemdTTHwcbtPilu+KAKUCDwf0zDw==
+edSignature: E1iSkEN3VcCL652F93+Eugj6ltQc4c5dAn2y5nnMxdU9I90U4KKnALgnOkvg/jiBC08DBDkrbzd60/8xj4GpCA==
 length: 1191
 -->
