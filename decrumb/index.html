@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Decrumb — Clean Signal links, saved for you</title>
-  <meta name="description" content="Decrumb removes known tracking parameters from incoming Signal links and saves clean links to Note to Self. Try the first release candidate for Apple silicon Macs.">
+  <title>Decrumb — Clean links from Signal, saved automatically</title>
+  <meta name="description" content="Decrumb removes tracking tags from links you receive on Signal and saves clean copies to Note to Self. A free, open-source app for Mac.">
   <meta name="theme-color" content="#15171b">
   <link rel="canonical" href="https://mkships.app/decrumb/">
   <link rel="icon" type="image/svg+xml" href="/decrumb/icon.svg">
   <link rel="stylesheet" href="/decrumb/style.css">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Decrumb — Clean Signal links, saved for you">
-  <meta property="og:description" content="Decrumb removes known tracking parameters from incoming Signal links and saves clean links to Note to Self. Try the first release candidate for Apple silicon Macs.">
+  <meta property="og:title" content="Decrumb — Clean links from Signal, saved automatically">
+  <meta property="og:description" content="Decrumb removes tracking tags from links you receive on Signal and saves clean copies to Note to Self. A free, open-source app for Mac.">
   <meta property="og:url" content="https://mkships.app/decrumb/">
   <meta property="og:image" content="https://mkships.app/decrumb/icon.png">
   <meta property="og:image:alt" content="Decrumb app icon: a clean link with three small crumbs.">
@@ -22,45 +22,46 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <a class="brand" href="/decrumb/"><img src="/decrumb/icon.svg" alt="" width="38" height="38">Decrumb</a>
-    <nav class="site-nav" aria-label="Decrumb"><a href="/decrumb/" aria-current="page">Overview</a><a href="/decrumb/download/">Download</a><a href="/decrumb/support/">Support</a><a href="/decrumb/privacy/">Privacy</a></nav>
+    <nav class="site-nav" aria-label="Decrumb"><a href="/decrumb/" aria-current="page">Overview</a><a href="/decrumb/download/">Download</a><a href="/decrumb/support/">Help</a><a href="/decrumb/privacy/">Privacy</a></nav>
   </header>
   <main id="main" class="overview" tabindex="-1">
 <section class="hero">
   <div>
-    <p class="eyebrow">Decrumb · For macOS and Signal</p>
-    <h1>Keep the link.<br>Lose the tracking.</h1>
-    <p class="lead">Decrumb cleans incoming Signal links and saves the result to <strong>Note to Self</strong>. Your regular Signal app stays on your phone.</p>
-    <p class="status">1.0.0 RC2 · Apple silicon · macOS 26.4+</p>
-    <div class="actions"><a class="button" href="/decrumb/download/">Try the release candidate</a><a class="button secondary" href="https://github.com/moey823/decrumb">View source on GitHub ↗</a></div>
-    <p class="hero-note">Signed and notarized. Everything needed to run is included.</p>
+    <p class="eyebrow">Signal link cleaner for Mac</p>
+    <h1>Clean links from Signal.<br>Saved automatically.</h1>
+    <p class="lead">Decrumb removes tracking tags from links you receive and saves clean copies to <strong>Note to Self</strong>—ready to open or share.</p>
+    <div class="actions"><a class="button" href="/decrumb/download/">Download for Mac</a><a class="button secondary" href="https://github.com/moey823/decrumb">View on GitHub ↗</a></div>
+    <p class="hero-note">Free and open source. Runs in the background on your Mac.</p>
+    <p class="availability">Early release · Apple silicon · macOS 26.4+</p>
   </div>
-  <div class="example" aria-label="Example of a generated Decrumb note">
-    <div class="example-heading"><img src="/decrumb/icon.svg" alt="" width="40" height="40"><span>A little less baggage.</span></div>
-    <p class="example-label">An incoming link</p>
+  <div class="example" aria-label="A tracking tag removed from a Signal link">
+    <div class="example-heading"><img src="/decrumb/icon.svg" alt="" width="40" height="40"><span>Same page. Cleaner link.</span></div>
+    <p class="example-label">Someone sends you</p>
     <p class="incoming">https://example.com/story?<span>utm_source=signal&amp;</span>id=42</p>
     <div class="example-divider" aria-hidden="true">↓</div>
-    <p class="example-label">Saved to Note to Self</p>
-    <div class="note-bubble"><strong>Decrumb · From Alex</strong><p>https://example.com/story?id=42</p><code>#decrumb_7f12a096a143fa60eb729fa1</code></div>
-    <p class="example-caption">An illustrative example. Sender names are optional.</p>
-  </div>
-</section>
-<section aria-labelledby="features-heading">
-  <h2 id="features-heading">Small job. Useful controls.</h2>
-  <div class="grid">
-    <article class="card"><p class="eyebrow">01 · Clean</p><h3>Just the changed links.</h3><p>Remove known tracking parameters without opening the link. Decrumb preserves functional parameters and skips recognized signed links.</p></article>
-    <article class="card"><p class="eyebrow">02 · Choose</p><h3>Your sites, your rules.</h3><p>Clean all eligible sites or a selection. Exclude sites, keep specific parameters, and preview changes locally before saving.</p></article>
-    <article class="card"><p class="eyebrow">03 · Keep tidy</p><h3>Notes you can manage.</h3><p>Each note has a searchable Decrumb code. Keep notes, adjust individual lifetimes, or request removal of eligible notes the app recorded sending.</p></article>
+    <p class="example-label">Saved in your Note to Self</p>
+    <div class="note-bubble"><p>https://example.com/story?id=42</p></div>
+    <p class="example-caption">Example: the tracking tag is removed; the page ID stays. Only links that change are saved.</p>
   </div>
 </section>
 <section class="split section" aria-labelledby="works-heading">
-  <div><p class="eyebrow">A linked device on your Mac</p><h2 id="works-heading">A helper for your existing Signal.</h2><p>Connect from Signal’s Linked Devices screen, choose your rules, and turn cleaning on. Decrumb processes fresh incoming text and saves only links it changes.</p><p><strong>It sends only to Note to Self.</strong> It never replies to a contact or group, and it ignores its own notes to avoid loops.</p></div>
-  <ol class="steps"><li><strong>Link your Mac.</strong><span>Scan the QR code from Signal on your phone.</span></li><li><strong>Choose what to clean.</strong><span>Try a sample locally, then enable the worker.</span></li><li><strong>Find the useful part.</strong><span>Open Note to Self for the cleaned links.</span></li></ol>
+  <div><h2 id="works-heading">Connect once.<br>Let Decrumb do the cleanup.</h2><p>Keep using Signal as usual. Decrumb works alongside the app on your phone.</p><p>Your Mac needs to be awake and online for cleaning to run.</p></div>
+  <ol class="steps"><li><strong>Link Signal.</strong><span>Scan Decrumb’s QR code from Signal on your phone.</span></li><li><strong>Turn on cleaning.</strong><span>Use the default rules or choose which sites to clean.</span></li><li><strong>Open Note to Self.</strong><span>Your cleaned links appear there automatically.</span></li></ol>
 </section>
-<section class="callout" aria-labelledby="cleanup-heading"><p class="eyebrow">Cleanup is optional</p><h2 id="cleanup-heading">Keep by default. Remove when you choose.</h2><p>Removal is manual by default. Optional lifetimes and periodic sweeps can request removal of tracked notes within Signal’s supported 24-hour window.</p><p>Removal is best effort: a deleted-message marker may remain, and an acknowledgement does not prove every device erased the note. Automatic cleanup needs the worker running on an awake, online Mac.</p><a href="/decrumb/support/#cleanup">How note cleanup works →</a></section>
-<section class="section split" aria-labelledby="privacy-heading"><div><p class="eyebrow">No Decrumb cloud or telemetry</p><h2 id="privacy-heading">The work happens on your Mac.</h2><p>The app uses Signal to receive messages and send your notes. There is no Decrumb account, hosted message-processing service, advertising, or analytics.</p></div><div class="privacy-detail"><p>Local storage still matters: queued links and optional sender names are held in a plaintext outbox until attempted or cleared. Signal’s linked-device keys and state also stay on your Mac.</p><a href="/decrumb/privacy/">Read the storage and privacy details →</a></div></section>
-<section class="section release-note"><h2>Open source. First release candidate.</h2><p>Try 1.0.0 RC2 for installation testing on an Apple silicon Mac with macOS 26.4 or newer. No Homebrew, Python, Java, or extra Signal CLI installation is needed.</p><p>Real-device linking, message delivery, note removal, and start-at-login acceptance checks are still pending before stable v1.</p><p><a href="/decrumb/download/">Download the candidate and read the test status →</a></p></section>
+<section aria-labelledby="controls-heading">
+  <h2 id="controls-heading">You stay in control.</h2>
+  <div class="grid">
+    <article class="card"><h3>Choose what gets cleaned.</h3><p>Clean all supported sites or just a few. Preview a link to see what will change.</p></article>
+    <article class="card"><h3>Send only to yourself.</h3><p>Cleaned links go to Note to Self. Decrumb never replies to your contacts or groups.</p></article>
+    <article class="card"><h3>Keep notes or tidy up.</h3><p>Keep notes by default, or turn on optional cleanup. <a href="/decrumb/support/#cleanup">How removal works →</a></p></article>
+  </div>
+</section>
+<section class="section release-note" aria-labelledby="privacy-heading">
+  <h2 id="privacy-heading">Cleaned on your Mac.</h2>
+  <p>No Decrumb account or analytics. Connecting gives the Signal client access to your messages, and some data is stored locally. <a href="/decrumb/privacy/">See what’s accessed and stored →</a></p>
+</section>
   </main>
-  <footer><div class="footer-links"><a href="/">← mkships</a><a href="/decrumb/download/">Download</a><a href="/decrumb/support/">Support</a><a href="/decrumb/privacy/">Privacy</a><a href="/decrumb/terms/">Terms</a><a href="https://github.com/moey823/decrumb">GitHub ↗</a></div><span>© 2026 Matthew Kearney</span></footer>
-  <p class="independent">Decrumb is an independent, unofficial utility. It is not affiliated with or endorsed by Signal.</p>
+  <footer><div class="footer-links"><a href="/">← mkships</a><a href="/decrumb/download/">Download</a><a href="/decrumb/support/">Help</a><a href="/decrumb/privacy/">Privacy</a><a href="/decrumb/terms/">Terms</a><a href="https://github.com/moey823/decrumb">GitHub ↗</a></div><span>© 2026 Matthew Kearney</span></footer>
+  <p class="independent">Decrumb is independent and is not affiliated with or endorsed by Signal.</p>
 </body>
 </html>
