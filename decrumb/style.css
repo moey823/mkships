@@ -6,3 +6,6 @@
 @media(prefers-reduced-motion:no-preference){a{transition:background-color .15s ease,color .15s ease}}
 
 .security-note{margin:20px 0 0;font-size:15px}
+.availability{font-size:12px;margin:6px 0 0}
+.download-note{font-size:14px;margin:18px 0 0}
+.hero h1{font-size:clamp(38px,4.5vw,54px)}
