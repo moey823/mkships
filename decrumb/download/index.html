@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Download Decrumb for Mac</title>
-  <meta name="description" content="Download Decrumb for a Mac you leave awake and online, such as an always-on Mac mini. Requires Apple silicon and macOS 26.4 or later.">
+  <title>Download Decrumb for Mac or Raspberry Pi</title>
+  <meta name="description" content="Get the Mac app or Raspberry Pi command-line edition. Keep the machine running and online to save clean Signal links to Note to Self.">
   <meta name="theme-color" content="#15171b">
   <link rel="canonical" href="https://mkships.app/decrumb/download/">
   <link rel="icon" type="image/svg+xml" href="/decrumb/icon.svg">
   <link rel="stylesheet" href="/decrumb/style.css">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Download Decrumb for Mac">
-  <meta property="og:description" content="Download Decrumb for a Mac you leave awake and online, such as an always-on Mac mini. Requires Apple silicon and macOS 26.4 or later.">
+  <meta property="og:title" content="Download Decrumb for Mac or Raspberry Pi">
+  <meta property="og:description" content="Get the Mac app or Raspberry Pi command-line edition. Keep the machine running and online to save clean Signal links to Note to Self.">
   <meta property="og:url" content="https://mkships.app/decrumb/download/">
   <meta property="og:image" content="https://mkships.app/decrumb/icon.png">
   <meta property="og:image:alt" content="Decrumb app icon: a clean link with three small crumbs.">
@@ -25,32 +25,41 @@
     <nav class="site-nav" aria-label="Decrumb"><a href="/decrumb/">Overview</a><a href="/decrumb/download/" aria-current="page">Download</a><a href="/decrumb/support/">Help</a><a href="/decrumb/privacy/">Privacy</a></nav>
   </header>
   <main id="main" class="legal" tabindex="-1">
-<p class="eyebrow">Decrumb for Mac</p>
+<p class="eyebrow">Decrumb for Mac and Raspberry Pi</p>
 <h1>Get Decrumb.</h1>
 <p class="lead">Clean the links you receive on Signal and save them to Note to Self automatically.</p>
-<div class="download-card">
-  <p class="status">Early release · 1.0.0 RC3</p>
+<nav class="toc" aria-label="Choose your platform"><a href="#mac">Mac app</a><a href="#pi">Raspberry Pi</a></nav>
+<div id="mac" class="download-card">
+  <p class="status">Early release · 1.0.0 RC4</p>
   <h2>Free for Apple silicon Macs.</h2>
   <p>Requires <strong>macOS 26.4 or later</strong>. Signed app, notarized by Apple. Everything you need is included.</p>
   <p class="runtime-note"><strong>Install it on a Mac you leave awake and online.</strong> An always-on Mac mini is a good fit. Decrumb stops cleaning when that Mac sleeps, goes offline, or shuts down.</p>
-  <div class="actions"><a class="button" href="https://github.com/moey823/decrumb/releases/download/v1.0.0-rc.3/Decrumb-1.0.0-3-arm64.dmg">Download for Mac · 67.8 MB</a></div>
+  <div class="actions"><a class="button" href="https://github.com/moey823/decrumb/releases/download/v1.0.0-rc.4/Decrumb-1.0.0-4-arm64.dmg">Download for Mac · 69.5 MB</a></div>
   <p class="download-note">Still in testing. <a href="/decrumb/support/#release">What’s being tested →</a></p>
 </div>
 <section id="install">
-  <h2>Three steps to get started.</h2>
+  <h2>Set up the Mac app.</h2>
   <ol><li><strong>Install Decrumb.</strong> Open the download and drag Decrumb into Applications.</li><li><strong>Connect Signal.</strong> Open Decrumb and choose Connect Signal. On your phone, go to Signal → Settings → Linked Devices → Link a New Device, then scan the QR code.</li><li><strong>Find your clean links.</strong> Cleaning starts automatically after connecting. Open Note to Self in Signal to find the results.</li></ol>
   <p>You’ll need an existing Signal account. Keep the Mac awake, online, and logged in, with cleaning enabled. Its screen can be off. Intel Macs aren’t supported.</p>
   <p><a href="/decrumb/support/">Need a hand? →</a></p>
 </section>
+<section id="pi"><h2>Raspberry Pi.</h2>
+<p class="status">Early release · 1.0.0 RC4 · Command line</p>
+<p>For <strong>Raspberry Pi OS 64-bit, Bookworm or later</strong>. Runs in the background, with QR pairing in your terminal over SSH. No desktop or monitor needed.</p>
+<p class="runtime-note"><strong>Keep the Pi powered on and online.</strong> Install as your normal user, scan the QR code from Signal on your phone, and enable startup at boot.</p>
+<div class="actions"><a class="button" href="https://github.com/moey823/decrumb/releases/download/v1.0.0-rc.4/Decrumb-1.0.0-4-linux-arm64.tar.gz">Download for Raspberry Pi</a></div>
+<p><a href="https://github.com/moey823/decrumb/blob/v1.0.0-rc.4/docs/RASPBERRY-PI.md">Installation and upgrade instructions ↗</a> · <a href="https://github.com/moey823/decrumb/releases/download/v1.0.0-rc.4/Decrumb-1.0.0-4-linux-arm64.tar.gz.sha256">Checksum</a></p>
+<p>Uses Python 3.11+ and qrencode. The installer downloads a separate, checksum-verified ARM64 Signal client from a community provider linked by signal-cli. ARM Linux checks pass; physical Pi and live Signal acceptance testing remain.</p>
+</section>
 <section id="updates">
-  <h2>Already have Decrumb?</h2>
-  <p>Choose <strong>Check for Updates…</strong> in the app. Automatic updates are optional and off by default.</p>
+  <h2>Already have Decrumb on Mac?</h2>
+  <p>On Mac, choose <strong>Check for Updates…</strong> in the app. Automatic updates are optional and off by default.</p>
   <details><summary>Updating from RC1?</summary><p>If you enabled <strong>Discard queued links on pause</strong>, turn it off first to keep pending links.</p><p>Pause cleaning and quit Decrumb. Download this version, drag it into Applications, and choose Replace. Open Decrumb. Cleaning starts automatically. Your Signal connection and saved settings stay in place.</p><p>RC1 needs this manual update once; future updates can happen in the app.</p></details>
 </section>
 <section id="source">
   <h2>Source and release details.</h2>
-  <p><a href="https://github.com/moey823/decrumb">View on GitHub ↗</a> · <a href="https://github.com/moey823/decrumb/releases/tag/v1.0.0-rc.3">Release notes</a></p>
-  <details><summary>Checksums, build details and source downloads</summary><p>Version 1.0.0 RC3, build 3. Apple silicon; macOS 26.4 or later.</p><ul><li><a href="https://github.com/moey823/decrumb/releases/download/v1.0.0-rc.3/Decrumb-1.0.0-3-arm64.dmg.sha256">Download checksum</a> · <a href="https://github.com/moey823/decrumb/releases/download/v1.0.0-rc.3/Decrumb-1.0.0-3-arm64-release.json">Release metadata</a></li><li><a href="https://github.com/moey823/decrumb/tree/v1.0.0-rc.3">Source for this release</a> · <a href="https://github.com/moey823/decrumb#build-and-validate">Build instructions</a></li><li><a href="https://github.com/moey823/decrumb/releases/download/v1.0.0-rc.3/Decrumb-1.0.0-3-arm64-sources.zip">Full source archive, including bundled dependencies</a></li><li><a href="https://github.com/moey823/decrumb/blob/main/LICENSE">AGPL-3.0-only license</a></li></ul><p>You only need the app download to install Decrumb.</p></details>
+  <p><a href="https://github.com/moey823/decrumb">View on GitHub ↗</a> · <a href="https://github.com/moey823/decrumb/releases/tag/v1.0.0-rc.4">Release notes</a></p>
+  <details><summary>Checksums, build details and source downloads</summary><p>Version 1.0.0 RC4, build 4. Apple silicon; macOS 26.4 or later.</p><ul><li><a href="https://github.com/moey823/decrumb/releases/download/v1.0.0-rc.4/Decrumb-1.0.0-4-arm64.dmg.sha256">Download checksum</a> · <a href="https://github.com/moey823/decrumb/releases/download/v1.0.0-rc.4/Decrumb-1.0.0-4-arm64-release.json">Release metadata</a></li><li><a href="https://github.com/moey823/decrumb/tree/v1.0.0-rc.4">Source for this release</a> · <a href="https://github.com/moey823/decrumb#build-and-validate">Build instructions</a></li><li><a href="https://github.com/moey823/decrumb/releases/download/v1.0.0-rc.4/Decrumb-1.0.0-4-arm64-sources.zip">Full source archive, including bundled dependencies</a></li><li><a href="https://github.com/moey823/decrumb/blob/main/LICENSE">AGPL-3.0-only license</a></li></ul><p>Mac users only need the app download. Pi users need the Pi archive and the prerequisites in its installation guide.</p></details>
 </section>
   </main>
   <footer><div class="footer-links"><a href="/">← mkships</a><a href="/decrumb/download/">Download</a><a href="/decrumb/support/">Help</a><a href="/decrumb/privacy/">Privacy</a><a href="/decrumb/terms/">Terms</a><a href="https://github.com/moey823/decrumb">GitHub ↗</a></div><span>© 2026 Matthew Kearney</span></footer>
