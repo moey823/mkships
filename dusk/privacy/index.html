@@ -4,7 +4,7 @@
     <title>Privacy Policy — Dusk</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Dusk privacy policy. We collect nothing. Your data stays on your device." />
+    <meta name="description" content="Dusk keeps journal entries on your device and records limited save statistics. Learn about device identifiers, backups, and your choices." />
     <link rel="icon" type="image/png" href="/dusk/favicon.png" />
     <link rel="apple-touch-icon" href="/dusk/icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -175,7 +175,7 @@
     <header class="hero">
       <div class="container">
         <h1>Privacy Policy</h1>
-        <p class="subtitle">Last updated: February 2026</p>
+        <p class="subtitle">Last updated: September 24, 2026</p>
       </div>
     </header>
 
@@ -184,64 +184,69 @@
 
         <div class="policy-section">
           <h2>The short version</h2>
-          <p>Dusk does not collect, store, or transmit your personal data. Your journal entries exist only on your device. There are no accounts, no cloud storage, and no way for us to read what you write.</p>
+          <p>Your journal entries stay on your device. Dusk does not upload your journal text. Dusk does record limited save statistics: a randomly generated device identifier and the time a save event reaches the server.</p>
         </div>
 
         <hr class="divider" />
 
         <div class="policy-section">
-          <h2>No accounts</h2>
-          <p>Dusk does not require you to create an account. There is no sign-up, no email, and no password. You open the app and start writing.</p>
+          <h2>Your journal and account</h2>
+          <p>Dusk does not require an account, email address, or password. What you write is stored locally on your device. Journal text is not included in requests for daily questions or save statistics. Dusk does not provide automatic cloud sync for entries.</p>
+          <p>Your device or operating system may have its own backup settings. Those settings and any files you choose to export are separate from Dusk’s servers.</p>
         </div>
 
         <hr class="divider" />
 
         <div class="policy-section">
-          <h2>Your entries stay on your device</h2>
-          <p>Everything you write in Dusk is stored locally on your device using on-device storage. Your entries are never uploaded to a server, synced to the cloud, or transmitted over the internet.</p>
-          <p>If you delete the app, your entries are deleted with it. If you export your entries, the resulting file is created on your device and shared only if you choose to share it.</p>
+          <h2>Save statistics</h2>
+          <p>When you save an entry, Dusk attempts to send a save event to its backend. The event contains a randomly generated identifier stored by Dusk on your device. The server stores that identifier and the time it receives the event. It does not receive your answer, journal text, or exported backup.</p>
+          <p>The identifier lets us group saves from the same installation and count save events and distinct devices. These records are used to understand app usage. The identifier is not your name, email address, or advertising identifier, but it remains associated with your save events; the records are not treated as fully anonymous.</p>
         </div>
 
         <hr class="divider" />
 
         <div class="policy-section">
-          <h2>No tracking or analytics</h2>
-          <p>Dusk does not use third-party analytics services, advertising SDKs, or tracking pixels. We do not track what you write, how often you use the app, or any other behavioral data.</p>
+          <h2>Daily questions and service protection</h2>
+          <p>Dusk can request the daily question from its backend. Version 1.1.1 also includes a question bank on the device so prompts remain available offline.</p>
+          <p>The backend uses IP addresses and temporary in-memory request counts to limit excessive requests for daily questions. IP addresses are not stored in the save-event table. Backend hosting providers process normal network information needed to operate the service.</p>
         </div>
 
         <hr class="divider" />
 
         <div class="policy-section">
-          <h2>No third-party access</h2>
-          <p>Because your data never leaves your device, no third party has access to it. There is nothing to share, sell, or breach.</p>
+          <h2>Hosting and advertising</h2>
+          <p>Dusk’s backend is hosted on Replit. Its hosting and database services process the limited information described above to operate the app and store save statistics. This does not give the backend access to your journal text.</p>
+          <p>Dusk does not include advertising SDKs or use these save statistics for targeted advertising, tracking you across other companies’ apps or websites, or sale to data brokers.</p>
         </div>
 
         <hr class="divider" />
 
         <div class="policy-section">
-          <h2>What we do collect</h2>
-          <p>Nothing. Dusk has no servers that receive your data, no databases that store your information, and no way to identify you.</p>
+          <h2>Exporting and importing backups</h2>
+          <p>You can export entries from Settings as a Markdown file. The file is created on your device and contains your journal text, dates, question text, and entry timestamps. You choose whether and where to save or share it. Anyone you share the file with can read its contents.</p>
+          <p>Importing a backup restores missing dates to local storage. If an entry for a date already exists on your device, Dusk keeps the existing entry. Importing and exporting do not provide automatic cloud sync.</p>
         </div>
 
         <hr class="divider" />
 
         <div class="policy-section">
-          <h2>Data export</h2>
-          <p>You can export all of your entries at any time as a Markdown file from the Settings screen. This file is generated entirely on your device. We never see it.</p>
+          <h2>Deleting entries and retained statistics</h2>
+          <p>Settings lets you delete locally stored journal entries. That action does not delete files you previously exported, copies you shared, or save events already recorded on the server.</p>
+          <p>Save-event records are retained for usage statistics; they do not currently have an automatic expiry. Contact us with privacy questions or requests. Because Dusk has no account and does not collect your name or email through the app, an email address alone does not identify a device’s save events.</p>
         </div>
 
         <hr class="divider" />
 
         <div class="policy-section">
           <h2>Changes to this policy</h2>
-          <p>If this policy changes, we will update this page. Because Dusk collects no data, there is very little that could change.</p>
+          <p>We will update this page and its date when the policy changes.</p>
         </div>
 
         <hr class="divider" />
 
         <div class="policy-section">
           <h2>Contact</h2>
-          <p>If you have questions about this policy, you can reach us through the App Store listing for Dusk.</p>
+          <p>For Dusk support or privacy questions, email <a href="mailto:hello@mkships.app">hello@mkships.app</a>.</p>
         </div>
 
       </div>
