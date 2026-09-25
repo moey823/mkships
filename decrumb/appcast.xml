@@ -1,6 +1,8 @@
-<?xml version="1.0" standalone="yes"?><!-- sparkle-sign-warning:
+<?xml version="1.0" standalone="yes"?>
+<!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
---><rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+-->
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
         <title>Decrumb</title>
         <item>
@@ -11,10 +13,16 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
             <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.4</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <enclosure url="https://github.com/moey823/decrumb/releases/download/v1.1.1/Decrumb-1.1.1-8-arm64-update.zip" length="62242937" type="application/octet-stream" sparkle:edSignature="owvO4VwctIfJBGzY+ri3HRbaS8TwtogXg2VU++gXOLRKHPaZz07uvGv8RSNwAgw1/TP+o+f7qYIectFuV0i9DQ=="></enclosure>
+            <enclosure url="https://github.com/moey823/decrumb/releases/download/v1.1.1/Decrumb-1.1.1-8-arm64-update.zip" length="62242937" type="application/octet-stream" sparkle:edSignature="owvO4VwctIfJBGzY+ri3HRbaS8TwtogXg2VU++gXOLRKHPaZz07uvGv8RSNwAgw1/TP+o+f7qYIectFuV0i9DQ=="/>
+            <description sparkle:format="plain-text"><![CDATA[Decrumb 1.1.1 (build 8)
+
+Shared X/Twitter links now have their tracking parameters removed.
+
+The /decrumb status command now shows your running Decrumb version and build number.]]></description>
         </item>
     </channel>
-</rss><!-- sparkle-signatures:
-edSignature: PaF4E0r1JUJh+UJ1+pk6Oc1BGEbI2lm9DyrXj1i5cvE56FAqJzYh4xjosqXorbJ7orZPfFz1qS/kNDJwNh2nCg==
-length: 1186
+</rss>
+<!-- sparkle-signatures:
+edSignature: DtrF6oov4WSNC56vsiOTWsqm+hU7nwd6wV4DO1Fstg8vascOqUV81JkbJQsbi2BDIqs93IZxOEUhgc7M+MsVCQ==
+length: 1435
 -->
