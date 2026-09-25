@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Decrumb release notes — What’s new</title>
-  <meta name="description" content="Decrumb 1.1.1 cleans X/Twitter share links and shows the running version and build in the optional phone status command.">
+  <meta name="description" content="Decrumb 1.1.2 cleans links from disappearing messages, shows built-in domains and rules in Mac Settings, and displays updater release notes.">
   <meta name="theme-color" content="#15171b">
   <link rel="canonical" href="https://mkships.app/decrumb/releases/">
   <link rel="icon" type="image/svg+xml" href="/decrumb/icon.svg">
   <link rel="stylesheet" href="/decrumb/style.css">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Decrumb release notes — What’s new">
-  <meta property="og:description" content="Decrumb 1.1.1 cleans X/Twitter share links and shows the running version and build in the optional phone status command.">
+  <meta property="og:description" content="Decrumb 1.1.2 cleans links from disappearing messages, shows built-in domains and rules in Mac Settings, and displays updater release notes.">
   <meta property="og:url" content="https://mkships.app/decrumb/releases/">
   <meta property="og:image" content="https://mkships.app/decrumb/icon.png">
   <meta property="og:image:alt" content="Decrumb app icon: a clean link with three small crumbs.">
@@ -28,8 +28,15 @@
 <p class="eyebrow">Decrumb · What’s new</p>
 <h1>Small changes.<br>A little less friction.</h1>
 <p class="lead">Release notes for Mac, Raspberry Pi, Umbrel, and Windows.</p>
-<nav class="toc" aria-label="Release notes"><a href="#v111">V1.1.1 · X/Twitter links</a><a href="#v11">V1.1 · Windows CLI</a><a href="#v1">V1 · First stable release</a><a href="#rc6">RC6 · Local diagnostics</a><a href="#rc5">RC5 · Phone commands</a><a href="#rc4">RC4 · Raspberry Pi</a></nav>
-<section id="v111"><p class="status">Latest · 1.1.1 · Build 8 · September 25, 2026</p><h2>Clean X/Twitter share links.</h2>
+<nav class="toc" aria-label="Release notes"><a href="#v112">V1.1.2 · Disappearing messages</a><a href="#v111">V1.1.1 · X/Twitter links</a><a href="#v11">V1.1 · Windows CLI</a><a href="#v1">V1 · First stable release</a><a href="#rc6">RC6 · Local diagnostics</a><a href="#rc5">RC5 · Phone commands</a><a href="#rc4">RC4 · Raspberry Pi</a></nav>
+<section id="v112"><p class="status">Latest · 1.1.2 · Build 9 · September 25, 2026</p><h2>Clean links from disappearing messages.</h2>
+<ul><li><strong>Clean incoming links with a chat timer enabled.</strong> Disappearing messages now follow the same cleaning rules as ordinary messages. Generated notes follow Note to Self’s timer and your configured note-cleanup policy; the source chat’s timer is not copied.</li><li><strong>Use phone commands with a timer.</strong> Your authenticated commands in Note to Self also work when disappearing messages are enabled. Phone commands remain optional and off by default.</li><li><strong>See what gets cleaned.</strong> On Mac, open <strong>Settings → Cleaning rules → View domains and rules</strong> to see the built-in tracking parameters, extra Instagram and X/Twitter rules, exceptions, and limits.</li><li><strong>Read release notes in the updater.</strong> Notes are included directly in the signed update feed, fixing the notes area’s endless loading spinner.</li></ul>
+<p>View-once content and spoilers remain excluded. Ordinary outgoing messages and bare links in Note to Self are still ignored, and generated notes never loop back through the cleaner.</p>
+<p>On Mac, choose <strong>Check for Updates…</strong> to install build 9. Pi users rerun the installer; Umbrel users update through its app controls. Your Signal connection and saved settings stay in place.</p>
+<p>Mac requires Apple silicon and macOS 26.4 or later. Pi and Umbrel remain experimental; Windows remains a source-build CLI preview.</p>
+<p><a href="https://github.com/moey823/decrumb/releases/tag/v1.1.2">Full v1.1.2 release, checksums and source ↗</a></p>
+<div class="actions"><a class="button" href="/decrumb/download/">Get Decrumb v1.1.2</a></div></section>
+<section id="v111"><p class="status">1.1.1 · Build 8 · September 25, 2026</p><h2>Clean X/Twitter share links.</h2>
 <ul><li><strong>Remove extra share parameters.</strong> Decrumb now removes <code>s</code> and <code>t</code> from X/Twitter links, including links to posts.</li><li><strong>Check your version from your phone.</strong> The optional <code>/decrumb status</code> command now includes the running version and build, such as <code>Version: 1.1.1 (build 8)</code>. Enable phone commands in Cleaning rules, then send the command in Signal’s Note to Self.</li></ul>
 <p>On Mac, choose <strong>Check for Updates…</strong> to install build 8. Pi users rerun the installer; Umbrel users update through its app controls. Your Signal connection and saved settings stay in place.</p>
 <p>Mac requires Apple silicon and macOS 26.4 or later. Pi and Umbrel remain experimental; Windows remains a source-build CLI preview.</p>
