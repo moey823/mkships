@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Decrumb release notes — What’s new</title>
-  <meta name="description" content="Decrumb 1.1 adds a native Windows CLI preview and one shared version across Mac, Raspberry Pi, Umbrel, and Windows.">
+  <meta name="description" content="Decrumb 1.1.1 cleans X/Twitter share links and shows the running version and build in the optional phone status command.">
   <meta name="theme-color" content="#15171b">
   <link rel="canonical" href="https://mkships.app/decrumb/releases/">
   <link rel="icon" type="image/svg+xml" href="/decrumb/icon.svg">
   <link rel="stylesheet" href="/decrumb/style.css">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Decrumb release notes — What’s new">
-  <meta property="og:description" content="Decrumb 1.1 adds a native Windows CLI preview and one shared version across Mac, Raspberry Pi, Umbrel, and Windows.">
+  <meta property="og:description" content="Decrumb 1.1.1 cleans X/Twitter share links and shows the running version and build in the optional phone status command.">
   <meta property="og:url" content="https://mkships.app/decrumb/releases/">
   <meta property="og:image" content="https://mkships.app/decrumb/icon.png">
   <meta property="og:image:alt" content="Decrumb app icon: a clean link with three small crumbs.">
@@ -28,8 +28,14 @@
 <p class="eyebrow">Decrumb · What’s new</p>
 <h1>Small changes.<br>A little less friction.</h1>
 <p class="lead">Release notes for Mac, Raspberry Pi, Umbrel, and Windows.</p>
-<nav class="toc" aria-label="Release notes"><a href="#v11">V1.1 · Windows CLI</a><a href="#v1">V1 · First stable release</a><a href="#rc6">RC6 · Local diagnostics</a><a href="#rc5">RC5 · Phone commands</a><a href="#rc4">RC4 · Raspberry Pi</a></nav>
-<section id="v11"><p class="status">Latest · 1.1.0 · Build 7 · September 21, 2026</p><h2>Decrumb, now with a Windows CLI.</h2>
+<nav class="toc" aria-label="Release notes"><a href="#v111">V1.1.1 · X/Twitter links</a><a href="#v11">V1.1 · Windows CLI</a><a href="#v1">V1 · First stable release</a><a href="#rc6">RC6 · Local diagnostics</a><a href="#rc5">RC5 · Phone commands</a><a href="#rc4">RC4 · Raspberry Pi</a></nav>
+<section id="v111"><p class="status">Latest · 1.1.1 · Build 8 · September 25, 2026</p><h2>Clean X/Twitter share links.</h2>
+<ul><li><strong>Remove extra share parameters.</strong> Decrumb now removes <code>s</code> and <code>t</code> from X/Twitter links, including links to posts.</li><li><strong>Check your version from your phone.</strong> The optional <code>/decrumb status</code> command now includes the running version and build, such as <code>Version: 1.1.1 (build 8)</code>. Enable phone commands in Cleaning rules, then send the command in Signal’s Note to Self.</li></ul>
+<p>On Mac, choose <strong>Check for Updates…</strong> to install build 8. Pi users rerun the installer; Umbrel users update through its app controls. Your Signal connection and saved settings stay in place.</p>
+<p>Mac requires Apple silicon and macOS 26.4 or later. Pi and Umbrel remain experimental; Windows remains a source-build CLI preview.</p>
+<p><a href="https://github.com/moey823/decrumb/releases/tag/v1.1.1">Full v1.1.1 release, checksums and source ↗</a></p>
+<div class="actions"><a class="button" href="/decrumb/download/">Get Decrumb v1.1.1</a></div></section>
+<section id="v11"><p class="status">1.1.0 · Build 7 · September 21, 2026</p><h2>Decrumb, now with a Windows CLI.</h2>
 <p>Version 1.1 adds a native Windows command-line preview for technical users. All four platforms use the same Decrumb version, with matching Mac and Pi packages and a tested Umbrel image.</p>
 <ul><li><strong>Pair from PowerShell.</strong> Scan the terminal QR, then let Decrumb clean links in the background. Control it with status, pause, and resume commands.</li><li><strong>Choose login startup.</strong> Optional startup runs for your Windows user. Your PC must remain awake, online, and signed in.</li><li><strong>Keep state separate.</strong> The Windows CLI protects local account files with Windows permissions and contains its helper processes so they stop together.</li><li><strong>Use the same controls.</strong> Rules, previews, notes, optional phone commands, and private diagnostics are available from the CLI.</li></ul>
 <p>Windows is an unsigned source-build preview targeting Windows 11 on Intel/AMD 64-bit. Native tests and packaged smoke checks pass; live Signal pairing and sleep/wake acceptance remain. Pi and Umbrel remain experimental.</p>
