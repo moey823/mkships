@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Decrumb release notes — What’s new</title>
-  <meta name="description" content="Decrumb 1.1.2 cleans links from disappearing messages, shows built-in domains and rules in Mac Settings, and displays updater release notes.">
+  <meta name="description" content="Decrumb 1.1.3 improves Mac update installation and retries, makes Quit stop cleaning, and adds Hide to keep cleaning in the background.">
   <meta name="theme-color" content="#15171b">
   <link rel="canonical" href="https://mkships.app/decrumb/releases/">
   <link rel="icon" type="image/svg+xml" href="/decrumb/icon.svg">
   <link rel="stylesheet" href="/decrumb/style.css">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Decrumb release notes — What’s new">
-  <meta property="og:description" content="Decrumb 1.1.2 cleans links from disappearing messages, shows built-in domains and rules in Mac Settings, and displays updater release notes.">
+  <meta property="og:description" content="Decrumb 1.1.3 improves Mac update installation and retries, makes Quit stop cleaning, and adds Hide to keep cleaning in the background.">
   <meta property="og:url" content="https://mkships.app/decrumb/releases/">
   <meta property="og:image" content="https://mkships.app/decrumb/icon.png">
   <meta property="og:image:alt" content="Decrumb app icon: a clean link with three small crumbs.">
@@ -28,14 +28,20 @@
 <p class="eyebrow">Decrumb · What’s new</p>
 <h1>Small changes.<br>A little less friction.</h1>
 <p class="lead">Release notes for Mac, Raspberry Pi, Umbrel, and Windows.</p>
-<nav class="toc" aria-label="Release notes"><a href="#v112">V1.1.2 · Disappearing messages</a><a href="#v111">V1.1.1 · X/Twitter links</a><a href="#v11">V1.1 · Windows CLI</a><a href="#v1">V1 · First stable release</a><a href="#rc6">RC6 · Local diagnostics</a><a href="#rc5">RC5 · Phone commands</a><a href="#rc4">RC4 · Raspberry Pi</a></nav>
-<section id="v112"><p class="status">Latest · 1.1.2 · Build 9 · September 25, 2026</p><h2>Clean links from disappearing messages.</h2>
+<nav class="toc" aria-label="Release notes"><a href="#v113">V1.1.3 · Updates and Quit</a><a href="#v112">V1.1.2 · Disappearing messages</a><a href="#v111">V1.1.1 · X/Twitter links</a><a href="#v11">V1.1 · Windows CLI</a><a href="#v1">V1 · First stable release</a><a href="#rc6">RC6 · Local diagnostics</a><a href="#rc5">RC5 · Phone commands</a><a href="#rc4">RC4 · Raspberry Pi</a></nav>
+<section id="v113"><p class="status">Latest · 1.1.3 · Build 10 · September 25, 2026</p><h2>Updates that explain what’s happening. Quit that stops cleaning.</h2>
+<ul><li><strong>Finish Mac updates more reliably.</strong> Fixes an installation-preparation failure that could leave Install and Relaunch stalled. App updates explains when you need to finish an action, save settings, or retry, and keeps Install and Relaunch available after a preparation failure.</li><li><strong>Quit stops cleaning.</strong> Quit Decrumb now stops its background helper and closes the app. Your linked account, saved settings, queued links, and receipts stay in place. Opening Decrumb starts cleaning again.</li><li><strong>Hide keeps cleaning.</strong> Choose Hide Decrumb, or close its window, to leave the helper running.</li></ul>
+<p>Includes the disappearing-message support, built-in rules list, and updater release notes added in 1.1.2.</p>
+<p>Choose <strong>Check for Updates…</strong> on Mac. If an older app’s Install and Relaunch button cannot finish, follow the <a href="/decrumb/download/#updates">manual update steps</a>. Pi users rerun the installer; Umbrel users update through its app controls.</p>
+<p><a href="https://github.com/moey823/decrumb/releases/tag/v1.1.3">Full v1.1.3 release, checksums and source ↗</a></p>
+<div class="actions"><a class="button" href="/decrumb/download/">Get Decrumb v1.1.3</a></div></section>
+<section id="v112"><p class="status">1.1.2 · Build 9 · September 25, 2026</p><h2>Clean links from disappearing messages.</h2>
 <ul><li><strong>Clean incoming links with a chat timer enabled.</strong> Disappearing messages now follow the same cleaning rules as ordinary messages. Generated notes follow Note to Self’s timer and your configured note-cleanup policy; the source chat’s timer is not copied.</li><li><strong>Use phone commands with a timer.</strong> Your authenticated commands in Note to Self also work when disappearing messages are enabled. Phone commands remain optional and off by default.</li><li><strong>See what gets cleaned.</strong> On Mac, open <strong>Settings → Cleaning rules → View domains and rules</strong> to see the built-in tracking parameters, extra Instagram and X/Twitter rules, exceptions, and limits.</li><li><strong>Read release notes in the updater.</strong> Notes are included directly in the signed update feed, fixing the notes area’s endless loading spinner.</li></ul>
 <p>View-once content and spoilers remain excluded. Ordinary outgoing messages and bare links in Note to Self are still ignored, and generated notes never loop back through the cleaner.</p>
-<p>On Mac, choose <strong>Check for Updates…</strong> to install build 9. Pi users rerun the installer; Umbrel users update through its app controls. Your Signal connection and saved settings stay in place.</p>
+<p>At release, Mac <strong>Check for Updates…</strong> offered build 9. Pi users rerun the installer; Umbrel users update through its app controls. Your Signal connection and saved settings stay in place.</p>
 <p>Mac requires Apple silicon and macOS 26.4 or later. Pi and Umbrel remain experimental; Windows remains a source-build CLI preview.</p>
 <p><a href="https://github.com/moey823/decrumb/releases/tag/v1.1.2">Full v1.1.2 release, checksums and source ↗</a></p>
-<div class="actions"><a class="button" href="/decrumb/download/">Get Decrumb v1.1.2</a></div></section>
+<div class="actions"><a class="button" href="https://github.com/moey823/decrumb/releases/tag/v1.1.2">View Decrumb v1.1.2</a></div></section>
 <section id="v111"><p class="status">1.1.1 · Build 8 · September 25, 2026</p><h2>Clean X/Twitter share links.</h2>
 <ul><li><strong>Remove extra share parameters.</strong> Decrumb now removes <code>s</code> and <code>t</code> from X/Twitter links, including links to posts.</li><li><strong>Check your version from your phone.</strong> The optional <code>/decrumb status</code> command now includes the running version and build, such as <code>Version: 1.1.1 (build 8)</code>. Enable phone commands in Cleaning rules, then send the command in Signal’s Note to Self.</li></ul>
 <p>On Mac, choose <strong>Check for Updates…</strong> to install build 8. Pi users rerun the installer; Umbrel users update through its app controls. Your Signal connection and saved settings stay in place.</p>
