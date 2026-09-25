@@ -4,26 +4,24 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>Decrumb</title>
         <item>
-            <title>1.1.2</title>
-            <pubDate>Fri, 25 Sep 2026 11:36:11 -0400</pubDate>
+            <title>1.1.3</title>
+            <pubDate>Fri, 25 Sep 2026 13:11:03 -0400</pubDate>
             <link>https://mkships.app/decrumb/</link>
-            <sparkle:version>9</sparkle:version>
-            <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
+            <sparkle:version>10</sparkle:version>
+            <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.4</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description sparkle:format="plain-text"><![CDATA[Decrumb 1.1.2 (build 9)
+            <description sparkle:format="plain-text"><![CDATA[Decrumb 1.1.3 (build 10)
 
-Links in disappearing messages are now cleaned. Saved notes follow your Note to Self timer and Decrumb cleanup preferences; the source chat's timer is not copied. View-once content and spoilers remain excluded.
+Fixes update preparation and retry when Install and Relaunch could appear unresponsive. Update recovery now has a time limit, and blocked installs show an explanation and a retry action.
 
-Phone commands also work when Note to Self has a disappearing-message timer enabled.
+Quit Decrumb now stops cleaning and exits the app. Your Signal connection, settings, queued links and sent-note records are preserved, even if Pause is set to discard queued links. Your Start at login preference is unchanged.
 
-Settings > Cleaning rules > View domains and rules now lists the installed defaults, site rules, exceptions and limits.
-
-The updater now includes release notes in its signed feed so they can display immediately.]]></description>
-            <enclosure url="https://github.com/moey823/decrumb/releases/download/v1.1.2/Decrumb-1.1.2-9-arm64-update.zip" length="62303319" type="application/octet-stream" sparkle:edSignature="M+TxV31ID6UwBEsdBxn4ow0n2ZKN7hdlvjNbPRw0AH5PL02HfWm5GFNYJTIhlzWwt9gx/tW8mLSHqHDL6SGBAg=="></enclosure>
+Choose Hide Decrumb to hide the windows while keeping cleaning running. Opening Decrumb again resumes cleaning.]]></description>
+            <enclosure url="https://github.com/moey823/decrumb/releases/download/v1.1.3/Decrumb-1.1.3-10-arm64-update.zip" length="62334871" type="application/octet-stream" sparkle:edSignature="jIR/2lbHC8qt1xd5CJtYeRgVGQ2UTF5jC+vYlbHUXEkb1wOtXSTj8I6UbZk7BT/P4w2Ng70dfoZYEVYqo4QpBA=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: Z/aivUql6xwcQTIJz8+dnlA7nTgrZFgo16Y9+8tqdtPAo1wZ1T8nnNf5pW82qbwKGd6E7vJ64yfld9SJZRIIBg==
-length: 1800
+edSignature: WlR8HdbTZBwD31FKOQ79o57ME9SRxs8rW4tbky2WL3Xq5/q1OJZZyJhTlS3f/xQxB8HAxD9hhEmdTr5XGt5EBA==
+length: 1820
 -->
