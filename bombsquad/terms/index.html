@@ -55,6 +55,19 @@
         .legal-content h3:first-child {
             margin-top: 0;
         }
+        .legal-last-updated {
+            font-size: 0.9rem;
+            margin-top: -0.5rem !important;
+        }
+        .legal-contact {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            margin-top: 1.5rem !important;
+            padding-top: 1rem;
+        }
+        .legal-contact a {
+            color: var(--text-primary);
+            text-underline-offset: 0.15em;
+        }
         .legal-content p {
             margin: 0 0 1rem;
         }
@@ -71,7 +84,17 @@
                 <h1>Terms of Service</h1>
             </div>
             <div class="legal-content" id="legal-content">
-                <p>Loading...</p>
+                <p>Welcome to Bombsquad. By using this app, you agree to these terms.</p>
+                <p class="legal-last-updated">Last updated: January 27, 2026</p>
+                <h3>Use of Service</h3>
+                <p>Bombsquad is a puzzle game. Play fair, have fun, and don't do anything that would ruin the experience for others.</p>
+                <h3>Accounts</h3>
+                <p>You're responsible for keeping your account secure. Pick a password you'll remember.</p>
+                <h3>Content</h3>
+                <p>Don't use offensive usernames. We reserve the right to remove accounts that violate this.</p>
+                <h3>Changes</h3>
+                <p>We may update these terms occasionally. Continued use means you accept any changes.</p>
+                <p class="legal-contact">Questions about these terms? Contact <a href="mailto:hello@bombsquad-game.com">hello@bombsquad-game.com</a>.</p>
             </div>
         </div>
     </div>
@@ -89,36 +112,5 @@
             <p class="footer-copyright">&copy; 2026 Bombsquad. All rights reserved.</p>
         </div>
     </footer>
-    <script>
-        async function loadTermsOfService() {
-            try {
-                const response = await fetch('/api/v1/legal/terms');
-                const data = await response.json();
-
-                const container = document.getElementById('legal-content');
-                let html = `<p>${data.intro}</p>`;
-
-                for (const section of data.sections) {
-                    html += `<h3>${section.heading}</h3>`;
-                    html += `<p>${section.content}</p>`;
-                    if (section.list && section.list.length > 0) {
-                        html += '<ul>';
-                        for (const item of section.list) {
-                            html += `<li>${item}</li>`;
-                        }
-                        html += '</ul>';
-                    }
-                }
-
-                container.innerHTML = html;
-            } catch (error) {
-                console.error('Failed to load terms of service:', error);
-                document.getElementById('legal-content').innerHTML =
-                    '<p>Failed to load terms of service. Please try again later.</p>';
-            }
-        }
-
-        loadTermsOfService();
-    </script>
 </body>
 </html>

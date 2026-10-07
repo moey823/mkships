@@ -55,6 +55,19 @@
         .legal-content h3:first-child {
             margin-top: 0;
         }
+        .legal-last-updated {
+            font-size: 0.9rem;
+            margin-top: -0.5rem !important;
+        }
+        .legal-contact {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            margin-top: 1.5rem !important;
+            padding-top: 1rem;
+        }
+        .legal-contact a {
+            color: var(--text-primary);
+            text-underline-offset: 0.15em;
+        }
         .legal-content p {
             margin: 0 0 1rem;
         }
@@ -78,7 +91,26 @@
                 <h1>Privacy Policy</h1>
             </div>
             <div class="legal-content" id="legal-content">
-                <p>Loading...</p>
+                <p>Your privacy matters. Here's what we collect (spoiler: almost nothing).</p>
+                <p class="legal-last-updated">Last updated: January 27, 2026</p>
+                <h3>What We Collect</h3>
+                <p>We only collect:</p>
+                <ul>
+                    <li><strong>Username</strong> - An anonymous username you choose (no real name required)</li>
+                    <li><strong>Email</strong> - For account recovery</li>
+                    <li><strong>Puzzle times</strong> - Your completion times for puzzles</li>
+                </ul>
+                <h3>What We Don't Collect</h3>
+                <p>We do <strong>not</strong> collect:</p>
+                <ul>
+                    <li>Location data</li>
+                    <li>Tracking or analytics data</li>
+                </ul>
+                <h3>Data Sharing</h3>
+                <p>We don't sell or share your data with anyone. Your puzzle times appear on leaderboards with your username only.</p>
+                <h3>Delete Your Data</h3>
+                <p>You can delete your account anytime from the app settings. This permanently removes all your data.</p>
+                <p class="legal-contact">For privacy questions or support, contact <a href="mailto:hello@bombsquad-game.com">hello@bombsquad-game.com</a>.</p>
             </div>
         </div>
     </div>
@@ -96,36 +128,5 @@
             <p class="footer-copyright">&copy; 2026 Bombsquad. All rights reserved.</p>
         </div>
     </footer>
-    <script>
-        async function loadPrivacyPolicy() {
-            try {
-                const response = await fetch('/api/v1/legal/privacy');
-                const data = await response.json();
-
-                const container = document.getElementById('legal-content');
-                let html = `<p>${data.intro}</p>`;
-
-                for (const section of data.sections) {
-                    html += `<h3>${section.heading}</h3>`;
-                    html += `<p>${section.content}</p>`;
-                    if (section.list && section.list.length > 0) {
-                        html += '<ul>';
-                        for (const item of section.list) {
-                            html += `<li>${item}</li>`;
-                        }
-                        html += '</ul>';
-                    }
-                }
-
-                container.innerHTML = html;
-            } catch (error) {
-                console.error('Failed to load privacy policy:', error);
-                document.getElementById('legal-content').innerHTML =
-                    '<p>Failed to load privacy policy. Please try again later.</p>';
-            }
-        }
-
-        loadPrivacyPolicy();
-    </script>
 </body>
 </html>
