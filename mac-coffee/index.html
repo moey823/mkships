@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mac Coffee — Keep your Mac awake when you need it</title>
+  <meta name="description" content="A simple native menu bar app for macOS 14+ and Apple Silicon. Keep your Mac awake, keep the screen on, or set a timer with Mac Coffee.">
+  <meta name="theme-color" content="#17130f">
+  <link rel="canonical" href="https://mkships.app/mac-coffee/">
+  <link rel="icon" type="image/svg+xml" href="/icons/mac-coffee.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mac Coffee — Keep your Mac awake when you need it">
+  <meta property="og:description" content="Keep your Mac awake, keep the screen on, or set a timer from the menu bar. Native for macOS 14+ and Apple Silicon.">
+  <meta property="og:url" content="https://mkships.app/mac-coffee/">
+  <meta property="og:site_name" content="mkships">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mac Coffee — Keep your Mac awake when you need it">
+  <meta name="twitter:description" content="A simple native menu bar app for macOS 14+ and Apple Silicon.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #17130f;
+      --surface: #201b16;
+      --surface-raised: #28211a;
+      --border: #393027;
+      --text: #f8f1e7;
+      --muted: #b8aa98;
+      --quiet: #877867;
+      --accent: #efbd78;
+      --accent-ink: #261a0e;
+      --green: #9dcaa7;
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      --mono: "SF Mono", ui-monospace, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 76% 10%, rgba(175, 114, 55, .12), transparent 34rem),
+        var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+    .skip-link {
+      position: absolute;
+      top: -60px;
+      left: 16px;
+      z-index: 10;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: var(--accent-ink);
+    }
+    .skip-link:focus { top: 16px; }
+    .wrap { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .site-header a, .site-footer a {
+      text-decoration: none;
+      transition: color 160ms ease;
+    }
+    .site-header a:hover, .site-footer a:hover { color: var(--text); }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text) !important;
+      font-weight: 650;
+      letter-spacing: -.02em;
+    }
+    .brand img { width: 30px; height: 30px; border-radius: 8px; }
+    .crumb { color: var(--muted); }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(340px, .96fr);
+      gap: clamp(42px, 8vw, 104px);
+      align-items: center;
+      padding: 82px 0 96px;
+    }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font: 600 11px/1.4 var(--mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 650px;
+      margin-bottom: 22px;
+      font-size: clamp(44px, 6vw, 68px);
+      font-weight: 680;
+      letter-spacing: -.065em;
+      line-height: 1.02;
+    }
+    h1 span { color: var(--accent); }
+    .lead {
+      max-width: 550px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 19px);
+      line-height: 1.65;
+    }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 19px;
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      background: var(--accent);
+      color: var(--accent-ink);
+      font-size: 14px;
+      font-weight: 650;
+      text-decoration: none;
+      transition: transform 160ms ease, background 160ms ease;
+    }
+    .button:hover { transform: translateY(-2px); background: #f5cd96; }
+    .button svg { width: 16px; height: 16px; }
+    .compatibility { margin: 17px 0 0; color: var(--quiet); font-size: 12px; }
+    .preview-wrap { position: relative; display: grid; justify-items: center; }
+    .preview-glow {
+      position: absolute;
+      width: 78%;
+      aspect-ratio: 1;
+      top: 8%;
+      border-radius: 50%;
+      background: rgba(202, 143, 78, .15);
+      filter: blur(54px);
+      pointer-events: none;
+    }
+    .menu-preview {
+      position: relative;
+      width: min(100%, 390px);
+      padding: 18px;
+      border: 1px solid #4a3c2e;
+      border-radius: 20px;
+      background: linear-gradient(155deg, #30271f, #211b16 72%);
+      box-shadow: 0 28px 80px rgba(0,0,0,.38), inset 0 1px rgba(255,255,255,.06);
+    }
+    .preview-top {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 2px 3px 17px;
+      border-bottom: 1px solid rgba(255,255,255,.09);
+    }
+    .preview-top img { width: 35px; height: 35px; border-radius: 10px; }
+    .preview-name { font-size: 14px; font-weight: 650; }
+    .preview-caption { display: block; color: var(--quiet); font-size: 11px; }
+    .preview-state {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 16px 2px 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .state-dot { width: 7px; height: 7px; border-radius: 50%; background: #76695a; }
+    .control {
+      display: grid;
+      grid-template-columns: 35px 1fr auto;
+      align-items: center;
+      gap: 11px;
+      padding: 12px 10px;
+      border-radius: 12px;
+    }
+    .control + .control { margin-top: 3px; }
+    .control-icon {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid rgba(239,189,120,.15);
+      border-radius: 10px;
+      background: rgba(239,189,120,.08);
+      color: var(--accent);
+    }
+    .control-icon svg { width: 17px; height: 17px; }
+    .control-title { display: block; font-size: 13px; font-weight: 580; line-height: 1.35; }
+    .control-hint { display: block; margin-top: 2px; color: var(--quiet); font-size: 10px; }
+    .toggle {
+      width: 34px;
+      height: 20px;
+      padding: 3px;
+      border: 1px solid #504438;
+      border-radius: 999px;
+      background: #3a3128;
+    }
+    .toggle::before {
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #a99a87;
+      content: "";
+    }
+    .timer-demo {
+      margin: 12px 2px 2px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255,255,255,.09);
+    }
+    .timer-head { display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+    .timer-head span { color: var(--quiet); font-size: 10px; }
+    .timer-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 11px; }
+    .timer-chips span {
+      padding: 5px 8px;
+      border: 1px solid #4b3d2e;
+      border-radius: 7px;
+      color: var(--muted);
+      font: 10px/1.2 var(--mono);
+    }
+    .timer-chips .selected { border-color: rgba(239,189,120,.55); color: var(--accent); }
+    .preview-note { margin: 13px 0 0; color: var(--quiet); font-size: 10px; text-align: center; }
+
+    .features { padding: 72px 0 84px; border-top: 1px solid rgba(255,255,255,.07); }
+    .section-intro { max-width: 650px; margin: 0 auto 38px; text-align: center; }
+    .section-intro .eyebrow { margin-bottom: 12px; }
+    .section-intro h2, .details h2 {
+      margin-bottom: 12px;
+      font-size: clamp(29px, 4vw, 40px);
+      font-weight: 630;
+      letter-spacing: -.045em;
+      line-height: 1.15;
+    }
+    .section-intro > p:last-child { margin-bottom: 0; color: var(--muted); }
+    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .feature {
+      min-height: 220px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.012));
+    }
+    .feature-symbol {
+      display: grid;
+      width: 39px;
+      height: 39px;
+      margin-bottom: 22px;
+      place-items: center;
+      border: 1px solid rgba(239,189,120,.19);
+      border-radius: 12px;
+      background: rgba(239,189,120,.08);
+      color: var(--accent);
+    }
+    .feature-symbol svg { width: 19px; height: 19px; }
+    .feature h3 { margin-bottom: 8px; font-size: 17px; font-weight: 620; letter-spacing: -.02em; }
+    .feature p { margin-bottom: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      padding: 0 0 88px;
+    }
+    .detail-card {
+      padding: clamp(23px, 4vw, 34px);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--surface);
+    }
+    .detail-card h2 { font-size: 24px; }
+    .detail-card p { margin: 0; color: var(--muted); font-size: 14px; }
+    .site-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 24px 0 36px;
+      border-top: 1px solid rgba(255,255,255,.07);
+      color: var(--quiet);
+      font-size: 12px;
+    }
+    .site-footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; gap: 46px; padding: 62px 0 72px; }
+      .hero-copy { max-width: 650px; }
+      .preview-wrap { justify-items: start; }
+      .menu-preview { width: min(100%, 430px); }
+      .feature-grid { grid-template-columns: 1fr; }
+      .feature { min-height: auto; }
+      .feature-symbol { margin-bottom: 16px; }
+      .details { grid-template-columns: 1fr; padding-bottom: 65px; }
+    }
+    @media (max-width: 480px) {
+      .wrap { width: min(100% - 32px, 1120px); }
+      .site-header { min-height: 66px; }
+      .hero { padding-top: 51px; }
+      h1 { font-size: clamp(42px, 13vw, 56px); }
+      .menu-preview { padding: 14px; border-radius: 17px; }
+      .site-footer { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="brand" href="/mac-coffee/"><img src="/icons/mac-coffee.svg" alt="">Mac Coffee</a>
+      <a class="crumb" href="/">&#8592; mkships</a>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">A small menu bar utility</p>
+          <h1 id="hero-title">Your Mac, awake <span>on your terms.</span></h1>
+          <p class="lead">Keep your Mac awake when you need it, keep the screen on, or set a timer. Mac Coffee puts all three controls in the menu bar.</p>
+          <div class="actions">
+            <a class="button" href="https://github.com/moey823/mac-coffee" target="_blank" rel="noopener noreferrer">
+              View on GitHub
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M6 5h9v9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <p class="compatibility">Native macOS app · macOS 14+ · Apple Silicon</p>
+        </div>
+
+        <figure class="preview-wrap" aria-labelledby="preview-caption">
+          <div class="preview-glow" aria-hidden="true"></div>
+          <div class="menu-preview">
+            <div class="preview-top">
+              <img src="/icons/mac-coffee.svg" alt="">
+              <div><span class="preview-name">Mac Coffee</span><span class="preview-caption">Menu bar controls</span></div>
+            </div>
+            <div class="preview-state"><span class="state-dot" aria-hidden="true"></span>Session off</div>
+            <div class="control">
+              <span class="control-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8h10v7a5 5 0 0 1-10 0V8Z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17M10 4c-1-1 1-2 0-3M14 4c-1-1 1-2 0-3"/></svg></span>
+              <span><span class="control-title">Keep Awake</span><span class="control-hint">Session is off</span></span>
+              <span class="toggle" aria-hidden="true"></span>
+            </div>
+            <div class="control">
+              <span class="control-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 22h8M12 18v4"/></svg></span>
+              <span><span class="control-title">Keep Screen On</span><span class="control-hint">While your Mac is awake</span></span>
+              <span class="toggle" aria-hidden="true"></span>
+            </div>
+            <div class="timer-demo">
+              <div class="timer-head"><strong>Timer</strong><span>Choose a duration</span></div>
+              <div class="timer-chips" aria-hidden="true"><span>1m</span><span>15m</span><span>30m</span><span class="selected">60m</span><span>120m</span><span>Until stopped</span></div>
+            </div>
+          </div>
+          <figcaption id="preview-caption" class="preview-note">Illustrative preview · sessions start off on launch</figcaption>
+        </figure>
+      </section>
+
+      <section class="features" aria-labelledby="features-title">
+        <div class="section-intro">
+          <p class="eyebrow">Three simple controls</p>
+          <h2 id="features-title">Stay awake for as long as you need.</h2>
+          <p>Choose what should stay awake and when the session should end.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <span class="feature-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8h10v7a5 5 0 0 1-10 0V8Z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17M10 4c-1-1 1-2 0-3M14 4c-1-1 1-2 0-3"/></svg></span>
+            <h3>Keep Awake</h3>
+            <p>Start a keep-awake session from the menu bar. For lid-closed sessions on a MacBook, enable the included helper and approve it in macOS Login Items before starting. Desktop Macs use the standard macOS caffeinate mechanism.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 22h8M12 18v4"/></svg></span>
+            <h3>Keep Screen On</h3>
+            <p>Choose Keep Screen On before a session or while one is running. It prevents the display from sleeping while your Mac is awake; it cannot light a MacBook display while the lid is physically closed.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <h3>Timer</h3>
+            <p>Choose 1, 15, 30, 60, or 120 minutes—or keep a session running until you stop it. When the timer ends, the active keep-awake session ends too.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="details" aria-label="Built for your Mac">
+        <article class="detail-card">
+          <p class="eyebrow">Starts off</p>
+          <h2>You're always in control.</h2>
+          <p>Sessions start off each time Mac Coffee launches. Choose to keep your Mac awake only when you need it.</p>
+        </article>
+        <article class="detail-card">
+          <p class="eyebrow">Private by design</p>
+          <h2>Just a local utility.</h2>
+          <p>No account, network connection, or telemetry. Mac Coffee runs on your Mac and keeps its controls close at hand.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a href="/">&#8592; mkships</a>
+      <nav aria-label="Mac Coffee links">
+        <a href="https://github.com/moey823/mac-coffee" target="_blank" rel="noopener noreferrer">View on GitHub &#8599;</a>
+      </nav>
+    </footer>
+  </div>
+</body>
+</html>
