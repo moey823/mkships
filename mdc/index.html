@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My DJ Cloud — Project archive | mkships</title>
+  <meta name="description" content="An archive of My DJ Cloud, the retired backup and library sync service for DJs.">
+  <meta name="theme-color" content="#0D1726">
+  <link rel="canonical" href="https://mkships.app/mdc/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="My DJ Cloud — Project archive">
+  <meta property="og:description" content="The retired backup and library sync service for DJs, preserved by mkships.">
+  <meta property="og:url" content="https://mkships.app/mdc/">
+  <meta property="og:image" content="https://mkships.app/icons/mydjcloud.png">
+  <style>
+    :root { color-scheme: dark; --bg:#0D1726; --surface:#142338; --border:#2B4560; --text:#F1F6FB; --muted:#B8C9D9; --soft:#88A5BE; --accent:#73D7E3; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.65; }
+    a { color:var(--accent); }
+    a:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
+    .wrap { max-width:1040px; margin:0 auto; padding:0 24px; }
+    .top { padding:30px 0; }
+    .top a { text-decoration:none; font-size:14px; font-weight:600; }
+    .hero { padding:48px 0 76px; background:radial-gradient(circle at 82% 18%,#174E6A 0%,transparent 44%),linear-gradient(145deg,#142842,#0D1726 70%); }
+    .hero-grid { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(240px,.65fr); gap:48px; align-items:center; }
+    .eyebrow { text-transform:uppercase; letter-spacing:.16em; color:var(--accent); font-size:12px; font-weight:700; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { font-size:clamp(42px,7vw,76px); line-height:1.05; letter-spacing:-.045em; margin:16px 0 24px; }
+    .lead { font-size:clamp(18px,2.3vw,23px); line-height:1.5; color:var(--muted); max-width:620px; }
+    .notice { border-left:3px solid var(--accent); padding:10px 0 10px 18px; color:var(--muted); font-size:15px; max-width:650px; }
+    .hero-icon { width:min(100%,220px); height:auto; border-radius:22%; display:block; margin:auto; box-shadow:0 28px 70px #0008; }
+    section.content { padding:68px 0 0; }
+    h2 { font-size:clamp(27px,4vw,38px); letter-spacing:-.025em; line-height:1.2; margin-bottom:20px; }
+    h3 { font-size:18px; margin-bottom:8px; }
+    .intro { color:var(--muted); max-width:760px; font-size:17px; }
+    .cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:28px; }
+    .card, .plan { border:1px solid var(--border); border-radius:16px; padding:22px; background:var(--surface); }
+    .card p, .plan p { color:var(--muted); margin-bottom:0; font-size:15px; }
+    .split { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+    .product-shot { max-width:100%; max-height:510px; object-fit:contain; display:block; margin:auto; filter:drop-shadow(0 20px 32px #0008); }
+    ul { padding-left:20px; color:var(--muted); }
+    li { margin:7px 0; }
+    .tags { display:flex; flex-wrap:wrap; gap:9px; padding:0; list-style:none; }
+    .tags li { margin:0; padding:6px 13px; border:1px solid var(--border); border-radius:99px; color:var(--text); font-size:14px; }
+    .plans { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:25px; }
+    .plan strong { display:block; font-size:28px; margin:10px 0 4px; }
+    .plan small { color:var(--soft); }
+    .source { margin:72px 0 0; border-top:1px solid var(--border); padding:22px 0 55px; color:var(--soft); font-size:13px; }
+    .source p { margin-bottom:8px; }
+    @media(max-width:720px) { .hero-grid,.split { grid-template-columns:1fr; } .hero-grid { gap:24px; } .hero-icon { width:130px; margin:0; } .cards,.plans { grid-template-columns:1fr; } .hero { padding-bottom:56px; } section.content { padding-top:54px; } }
+  </style>
+</head>
+<body>
+  <header class="wrap top"><a href="/">← mkships</a></header>
+  <main>
+    <div class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Retired project · Archive</p>
+          <h1>My DJ Cloud</h1>
+          <p class="lead">Cloud backup and library sync built for DJs. My DJ Cloud helped safeguard music files and the details that make a DJ library personal.</p>
+          <p class="notice">My DJ Cloud has been retired. This page preserves information from its public website captured on October 18, 2026. Features, downloads, and prices below describe the former service.</p>
+        </div>
+        <img class="hero-icon" src="/icons/mydjcloud.png" alt="My DJ Cloud app icon" width="220" height="220">
+      </div>
+    </div>
+
+    <section class="content wrap" aria-labelledby="how-title">
+      <h2 id="how-title">How it worked</h2>
+      <p class="intro">DJs installed the desktop app, selected their DJ software and music folders, and let it back up library changes in the background. The site described backups for Serato, rekordbox, and VirtualDJ.</p>
+      <div class="cards">
+        <div class="card"><h3>Library and file backup</h3><p>Music files, tags, cue points, crates, edits, and other library changes were backed up automatically.</p></div>
+        <div class="card"><h3>Quick and Smart Sync</h3><p>Folder selection made setup quick. Smart Sync was designed to avoid syncing while a DJ was performing.</p></div>
+        <div class="card"><h3>Mobile streaming</h3><p>The mobile app let DJs search and stream their collection using music metadata.</p></div>
+      </div>
+    </section>
+
+    <section class="content wrap split" aria-labelledby="details-title">
+      <div>
+        <h2 id="details-title">Details worth preserving</h2>
+        <p class="intro">The service was built around the risk of losing a carefully curated music library to a failed drive, stolen device, lost laptop or external drive, or a missing backup.</p>
+        <ul>
+          <li>Support for iTunes managed libraries and emoji in filenames and crates</li>
+          <li>Library sync, MP3 storage, and duplicate detection listed on the site</li>
+          <li>Desktop apps for Mac and Windows, with iOS and Android mobile apps</li>
+        </ul>
+        <h3>DJ software</h3>
+        <ul class="tags"><li>Serato</li><li>rekordbox</li><li>VirtualDJ</li></ul>
+      </div>
+      <img class="product-shot" src="mobile-app.png" alt="Archived My DJ Cloud mobile app image from the former features page" width="828" height="736" loading="lazy">
+    </section>
+
+    <section class="content wrap" aria-labelledby="plans-title">
+      <h2 id="plans-title">Plans shown on the former site</h2>
+      <p class="intro">These were the advertised monthly plans when the public website was captured. They are historical information, not available offers.</p>
+      <div class="plans">
+        <div class="plan"><h3>Essential</h3><strong>200 GB</strong><p>$7.99 per month</p><small>Library backup · File backup · Mobile streaming · Duplicate detection</small></div>
+        <div class="plan"><h3>Professional</h3><strong>2,000 GB</strong><p>$11.99 per month</p><small>Library backup · File backup · Mobile streaming · Duplicate detection</small></div>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap source">
+    <p>Archived from the public My DJ Cloud home, features, and about pages on October 18, 2026. Product image captured from the former features page.</p>
+    <a href="/">Back to mkships</a>
+  </footer>
+</body>
+</html>

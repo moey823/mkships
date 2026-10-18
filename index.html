@@ -184,6 +184,25 @@
       outline-offset: 2px;
     }
 
+    /* ---- Retired projects ---- */
+    .retired {
+      border-top: 1px solid var(--border);
+      margin-top: 56px;
+      padding-top: 32px;
+    }
+
+    .retired h2 {
+      font-size: 22px;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .retired > p {
+      color: var(--text-secondary);
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
     /* ---- Footer ---- */
     footer {
       text-align: center;
@@ -262,15 +281,6 @@
         </div>
 
         <div class="card">
-          <img class="card-icon" src="icons/mydjcloud.png" alt="My DJ Cloud icon" width="56" height="56">
-          <div class="card-body">
-            <h2 class="card-name">My DJ Cloud</h2>
-            <p class="card-desc">Automatic cloud backup for DJ libraries. Works with Serato, Rekordbox, and Virtual DJ.</p>
-            <a class="card-link" href="https://mydj.cloud" target="_blank" rel="noopener noreferrer">Visit Site &#8594;</a>
-          </div>
-        </div>
-
-        <div class="card">
           <img class="card-icon" src="icons/bombsquad.png" alt="Bombsquad app icon" width="56" height="56">
           <div class="card-body">
             <h2 class="card-name">Bombsquad</h2>
@@ -312,15 +322,6 @@
             <h2 class="card-name">Decrumb</h2>
             <p class="card-desc">Saves clean Signal links to Note to Self. Run it on a Mac, Raspberry Pi, or Umbrel server, or try the new Windows CLI. Find the clean links on your phone.</p>
             <a class="card-link" href="/decrumb/">Meet Decrumb &#8594;</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <img class="card-icon" src="icons/gramo.png" alt="Gramo app icon" width="56" height="56">
-          <div class="card-body">
-            <h2 class="card-name">Gramo</h2>
-            <p class="card-desc"><strong>Shut down.</strong> A proof of concept for tracking protein with natural language.</p>
-            <a class="card-link" href="/gramo">View project archive &#8594;</a>
           </div>
         </div>
 
@@ -381,6 +382,30 @@
         <!-- ========== PRODUCT CARDS END ========== -->
 
       </div>
+
+      <section class="retired" aria-labelledby="retired-title">
+        <h2 id="retired-title">Retired</h2>
+        <p>Past projects kept here for reference.</p>
+        <div class="grid">
+          <div class="card">
+            <img class="card-icon" src="icons/mydjcloud.png" alt="My DJ Cloud icon" width="56" height="56">
+            <div class="card-body">
+              <h2 class="card-name">My DJ Cloud</h2>
+              <p class="card-desc">A retired cloud backup service for DJ libraries, with support for Serato, rekordbox, and VirtualDJ.</p>
+              <a class="card-link" href="/mdc/">View project archive &#8594;</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <img class="card-icon" src="icons/gramo.png" alt="Gramo app icon" width="56" height="56">
+            <div class="card-body">
+              <h2 class="card-name">Gramo</h2>
+              <p class="card-desc">A retired proof of concept for tracking protein with natural language.</p>
+              <a class="card-link" href="/gramo">View project archive &#8594;</a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
