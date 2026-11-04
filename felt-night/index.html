@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Felt Night — self-hosted Texas Hold’em tournaments</title>
+  <meta name="description" content="Host mobile-friendly, play-chip Texas Hold’em tournaments on your own server. Felt Night runs on Python and SQLite, with player accounts and hand histories.">
+  <meta name="theme-color" content="#101813">
+  <link rel="canonical" href="https://mkships.app/felt-night/">
+  <link rel="icon" type="image/svg+xml" href="/felt-night/ace.svg">
+  <link rel="stylesheet" href="/felt-night/style.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="mkships">
+  <meta property="og:title" content="Felt Night — self-hosted Texas Hold’em tournaments">
+  <meta property="og:description" content="A mobile-friendly, open-source poker tournament app for your own server. Python, SQLite, and play chips only.">
+  <meta property="og:url" content="https://mkships.app/felt-night/">
+  <meta property="og:image" content="https://mkships.app/felt-night/screenshots/table-desktop.png">
+  <meta property="og:image:alt" content="Felt Night Texas Hold’em table on desktop">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Felt Night — self-hosted Texas Hold’em tournaments">
+  <meta name="twitter:description" content="Host mobile-friendly, play-chip tournaments on your own server.">
+  <meta name="twitter:image" content="https://mkships.app/felt-night/screenshots/table-desktop.png">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="/felt-night/">
+      <img src="/felt-night/ace.svg" alt="" width="40" height="40">
+      <span>Felt Night</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a href="#self-host">Self-host</a>
+      <a class="nav-source" href="https://github.com/moey823/felt-night" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main" class="wrap" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"></span> Open source · self-hosted</p>
+        <h1 id="hero-title">Poker night, on your own server.</h1>
+        <p class="lead">Felt Night is a mobile-friendly Texas Hold’em tournament app for private groups. Host tables, play with chips that have no cash value, and keep the game data on the server you run.</p>
+        <div class="actions">
+          <a class="button primary" href="https://github.com/moey823/felt-night" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a>
+          <a class="button" href="#self-host">See how to run it</a>
+        </div>
+        <ul class="hero-facts" aria-label="Project details">
+          <li><strong>Python</strong><span>3.9+</span></li>
+          <li><strong>SQLite</strong><span>Built in</span></li>
+          <li><strong>Play chips</strong><span>No cash value</span></li>
+        </ul>
+      </div>
+      <figure class="screen-frame desktop-shot">
+        <img src="/felt-night/screenshots/table-desktop.png" alt="Felt Night Texas Hold’em tournament table on a desktop screen" width="1366" height="850" fetchpriority="high">
+        <figcaption><span class="caption-dot" aria-hidden="true"></span> A live tournament table in the browser</figcaption>
+      </figure>
+    </section>
+
+    <section id="features" class="section" aria-labelledby="features-title">
+      <div class="section-heading">
+        <p class="eyebrow">Built for the whole table</p>
+        <h2 id="features-title">A tournament that stays in your hands.</h2>
+        <p class="section-intro">Run a private game for your group, with the server keeping the hand in order and each player seeing the table from their own seat.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="feature-number">01 <span>· HOST</span></span>
+          <h3>Shape the tournament.</h3>
+          <p>Open multiple tables with 2–9 seats each. Before play, the host can set starting stacks, blinds, blind-level length, shot clock, all-in delay, buy-in and payout split.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-number">02 <span>· PLAY</span></span>
+          <h3>Keep the table in view.</h3>
+          <p>The browser layout works on phones and larger screens. The table stays oriented around your seat, with actions beside your hole cards.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-number">03 <span>· DEAL</span></span>
+          <h3>Let the server run the hand.</h3>
+          <p>The server checks turns and legal actions, keeps hidden cards private, and settles ties and side pots. Players can review available hand records after a tournament.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-number">04 <span>· ACCOUNT</span></span>
+          <h3>Keep your own history.</h3>
+          <p>Players sign in with individual accounts. Their history shows tournament results and the hand records available for those games.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="mobile-section" aria-labelledby="mobile-title">
+      <figure class="screen-frame phone-shot">
+        <img src="/felt-night/screenshots/table-mobile.png" alt="Felt Night poker table arranged for a mobile screen" width="390" height="850" loading="lazy">
+        <figcaption><span class="caption-dot" aria-hidden="true"></span> The same table, sized for a phone</figcaption>
+      </figure>
+      <div class="mobile-copy">
+        <p class="eyebrow">From a phone or desktop</p>
+        <h2 id="mobile-title">Every player gets their own seat.</h2>
+        <p>The table stays oriented around your seat, with your actions beside your hole cards. The layout adapts as you move between phone and desktop screens.</p>
+      </div>
+    </section>
+
+    <section class="chips-note" aria-labelledby="chips-title">
+      <div class="chips-mark" aria-hidden="true">♠</div>
+      <div>
+        <p class="eyebrow">Play chips only</p>
+        <h2 id="chips-title">A private game, without cash play.</h2>
+        <p>Felt Night has no deposits, cash-outs, prizes or rebuys. Betting chips and tournament buy-in credits stay inside the game and have no cash value.</p>
+      </div>
+    </section>
+
+    <section id="self-host" class="section install-section" aria-labelledby="install-title">
+      <div class="section-heading">
+        <p class="eyebrow">Your server, your room</p>
+        <h2 id="install-title">Run Felt Night yourself.</h2>
+        <p class="section-intro">The app uses Python’s standard library and SQLite. It needs Python 3.9 or newer and an HTTPS reverse proxy in front of the loopback web process.</p>
+      </div>
+      <div class="install-grid">
+        <div class="install-copy">
+          <h3>Start with the source.</h3>
+          <ol class="steps">
+            <li>Clone the Felt Night repository.</li>
+            <li>Choose a persistent data directory outside the checkout.</li>
+            <li>Point your HTTPS proxy to <code>127.0.0.1:18943</code> and set the exact public origin.</li>
+          </ol>
+          <p class="install-note">Registration requires the room invite password you configure for your group. Players then use their own username and password.</p>
+          <a class="text-link" href="https://github.com/moey823/felt-night" target="_blank" rel="noopener noreferrer">Read the setup notes on GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="code-panel">
+          <div class="code-heading"><span>Terminal</span><span>Python 3.9+</span></div>
+          <pre><code>git clone https://github.com/moey823/felt-night.git
+cd felt-night
+python3 server.py \
+  --host 127.0.0.1 \
+  --port 18943 \
+  --public-origin https://poker.example.com \
+  --data-dir "$HOME/.local/share/felt-night"</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="fair-play" aria-labelledby="fair-title">
+      <div class="fair-copy">
+        <p class="eyebrow">Fair play, clearly described</p>
+        <h2 id="fair-title">The deal stays on the server.</h2>
+        <p>A fresh deck is shuffled with Python’s <code>random.SystemRandom</code>, which draws randomness from the operating system. The deck and hidden cards stay server-side; the browser receives only the cards that player is allowed to see.</p>
+      </div>
+      <aside class="fair-limit">
+        <h3>Know the limits.</h3>
+        <p>The server validates actions and controls the deal, but this is not a cheat-proof or independently certified poker room. There is no public shuffle proof, and the person running the server controls its code and data. Use it for private play-chip games.</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/">← mkships</a>
+      <a href="https://github.com/moey823/felt-night" target="_blank" rel="noopener noreferrer">Source on GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+    <span>Felt Night · Open-source, self-hosted poker</span>
+  </footer>
+</body>
+</html>\n
