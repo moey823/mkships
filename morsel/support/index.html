@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Help and support — Morsel</title>
-  <meta name="description" content="Morsel help for food search, incomplete nutrition totals, local imports, backups, and the optional food description helper.">
+  <meta name="description" content="Morsel help for food search, incomplete nutrition totals, local imports, backups, deleting your data, and using the food helper.">
   <meta name="theme-color" content="#176456">
   <link rel="canonical" href="https://mkships.app/morsel/support/">
   <link rel="icon" href="/morsel/icon.png">
@@ -53,13 +53,27 @@
         <p>Open Preferences → Your data → Import from MyFitnessPal. Choose Paste food data or Choose .txt, .tsv, or .json file. Supported inputs are UTF-8 tab-separated tables or version 1 JSON, up to 256 KB and 250 nonblank records including headings. CSV and ZIP Premium meal-summary downloads are not supported. Import parsing and review stay on your iPhone; Morsel does not sign in to MyFitnessPal. Review selected foods or a meal before confirming what to save. Reconstructed meals do not include MyFitnessPal recipe details.</p>
       </details>
       <details>
-        <summary>What does the optional AI food helper send?</summary>
-        <p>Each request asks for a separate confirmation that names OpenRouter, OpenAI, or Anthropic. Morsel sends your exact text and a fixed instruction to return a JSON nutrition estimate. It does not send your diary, saved foods, meals, history, or Apple Health records. Your own provider key is stored in iOS Keychain. The provider’s own data handling and charges may apply; see the <a href="/morsel/privacy/#ai-helper">privacy policy</a>.</p>
-        <p>The reply is an estimate that you can edit. Morsel does not log it automatically.</p>
+        <summary>Where is the food helper?</summary>
+        <p>Open <strong>Preferences → Food helper setup</strong>, select OpenRouter, OpenAI, or Anthropic, and save your API key. The <strong>Helper</strong> tab appears when the selected provider has a saved key and a model. The rest of Morsel works without a key.</p>
+        <p>Describe a food and portion, such as “one medium banana,” then tap Send. Choosing an example just fills the message box. With the keyboard open, tap Done to hide it or use the back arrow to return to Diary.</p>
       </details>
       <details>
-        <summary>How do I remove my saved provider key?</summary>
-        <p>Open Preferences → AI provider → API key, choose Remove saved key, and confirm Remove key for the selected provider. Remove saved keys before uninstalling Morsel; a Keychain item may remain after the app is removed.</p>
+        <summary>What gets sent, and when?</summary>
+        <p>The greeting is built in. On your first Send for a provider and model, Morsel names the recipient and asks for permission. Once you agree, each later Send shares only that message and the instructions for estimating nutrition. Previous messages, your diary, and your saved foods stay out of the request. Providers may charge for requests and retain messages. See the <a href="/morsel/privacy/#ai-helper">food helper privacy details</a>.</p>
+      </details>
+      <details>
+        <summary>How do I use a food estimate?</summary>
+        <p>Tap <strong>Review food</strong> to check the serving, calories, and macros. Edit the values and tap Save to keep the food in Library. You can also choose a matching saved or catalog food and review its portion. Adding food to your diary takes a separate tap. The helper estimates foods you describe. It doesn’t set personal targets or give medical advice.</p>
+      </details>
+      <details>
+        <summary>How do I remove a key or reset sharing permission?</summary>
+        <p>In <strong>Preferences → Food helper setup</strong>, select the provider. Choose <strong>Remove saved key</strong> and confirm <strong>Remove key</strong> to remove its key from this iPhone. The Helper tab disappears when the selected provider no longer has a key.</p>
+        <p>To keep the key but see the permission prompt again, choose <strong>Forget sharing consent</strong> for that provider.</p>
+      </details>
+      <details id="delete-data">
+        <summary>How do I delete all my Morsel data?</summary>
+        <p>If you want a copy first, open <strong>Preferences → Export backup</strong> and choose where to save it. Then choose <strong>Delete All Data</strong> in Preferences. Tap Cancel to keep everything, or confirm <strong>Delete All Data</strong> to erase it.</p>
+        <p>This clears your diary, saved foods and meals, targets, preferences, provider keys, sharing consent, and Morsel’s local recovery copies. The diary will be empty. Files you exported and records held by an AI provider are managed separately. See <a href="/morsel/privacy/#delete-data">what deletion covers</a>.</p>
       </details>
       <details>
         <summary>How do I export or restore a backup?</summary>

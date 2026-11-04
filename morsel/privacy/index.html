@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy policy — Morsel</title>
-  <meta name="description" content="How Morsel stores your food diary on iPhone and handles optional Open Food Facts requests, MyFitnessPal imports, AI prompts, backups, and support.">
+  <meta name="description" content="How Morsel stores your food diary on iPhone and handles optional Open Food Facts requests, MyFitnessPal imports, food helper messages, backups, deletion, and support.">
   <meta name="theme-color" content="#176456">
   <link rel="canonical" href="https://mkships.app/morsel/privacy/">
   <link rel="icon" href="/morsel/icon.png">
@@ -28,7 +28,7 @@
     <h1>Privacy policy</h1>
     <p class="updated">Effective November 4, 2026</p>
     <div class="notice">
-      <p><strong>Morsel keeps your food diary on your iPhone.</strong> It has no account or developer-run backend, and does not automatically upload your diary. Open Food Facts receives a search you submit or a barcode lookup you request. The AI helper receives your confirmed text and a fixed instruction to return a JSON nutrition estimate.</p>
+      <p><strong>Morsel keeps your food diary on your iPhone.</strong> It has no account or developer-run backend, and does not automatically upload your diary. Open Food Facts receives a search you submit or a barcode lookup you request. If you use the optional food helper, tapping Send shares the current message with the provider you choose.</p>
     </div>
     <p>This policy covers the Morsel iPhone app, the Morsel pages on mkships.app, and support requests. Morsel is provided by Matthew Kearney.</p>
 
@@ -41,7 +41,8 @@
     <section id="food-data" aria-labelledby="food-data-heading">
       <h2 id="food-data-heading">Food search and barcode requests</h2>
       <p>The USDA SR Legacy catalog is included in the app and searches that catalog work offline.</p>
-      <p>Open Food Facts is optional. When you submit an online search, the search text is sent to Open Food Facts. When you request a barcode lookup, the barcode is sent to look up a product; choosing a search result can also request the selected product’s current details. These requests do not include your diary, saved foods, meal history, account details, or identity. Open Food Facts receives the request and handles it under its own policies. As with any online request, the service may also receive ordinary connection information.</p>
+      <p>Tapping Search online sends your search text to Open Food Facts. Choosing a result requests its current product details. Morsel checks a scanned or typed barcode against saved foods first. If there’s no local match, it sends the barcode to Open Food Facts. These requests do not include your diary, saved foods, meal history, account details, or identity. Open Food Facts receives the request and handles it under its own policies. As with any online request, the service may also receive ordinary connection information.</p>
+      <p>If you choose Scan barcode, Morsel uses the camera to read the code on your iPhone. The lookup uses the barcode number. You can also enter it by hand.</p>
     </section>
 
     <section id="mfp-import" aria-labelledby="mfp-heading">
@@ -52,16 +53,22 @@
 
     <section id="ai-helper" aria-labelledby="ai-heading">
       <h2 id="ai-heading">Optional AI food helper</h2>
-      <p>The helper is optional and stays off until you configure it with your own key. You can choose OpenRouter, OpenAI, or Anthropic. Each request requires a separate confirmation step naming the selected provider.</p>
-      <p>Only the exact text you submit, plus Morsel’s fixed instruction to return a JSON nutrition estimate, is sent to the selected provider. Morsel does not add your conversation history, diary entries, saved foods, meal history, identity, or other personal context. The selected provider and model identifiers are sent as request metadata. The API key is sent to that provider in its normal authorization header to authenticate the request. Morsel stores keys per provider in iOS Keychain and excludes them from Morsel backups. Provider and model preferences stay on your iPhone. In Preferences → AI provider → API key, choose Remove saved key and confirm Remove key to remove a key for that provider. Remove saved keys before uninstalling; a Keychain item may remain after the app is removed.</p>
-      <p>Morsel does not store prompts or replies. The response is shown for you to edit; nothing is logged automatically. If you confirm a food estimate, it is saved locally and labeled as an AI estimate. Morsel never sends your diary or Apple Health records to an AI provider.</p>
-      <p>The chosen provider receives and processes the prompt under its own terms and privacy practices. If you use OpenRouter, it routes the request to the selected underlying model provider; that provider may also process the prompt under its own policies. Morsel does not control or promise how either service retains information. Provider charges may apply. Review the applicable policies before sending text.</p>
+      <p>Saving your own API key in <strong>Preferences → Food helper setup</strong> makes the Helper tab available for the selected provider. You can choose OpenRouter, OpenAI, or Anthropic. The greeting is built into Morsel. Opening Helper, selecting an example, or typing a draft does not send a message.</p>
+      <p>The first time you send a message to a provider and model, Morsel identifies the recipient and asks for permission. If you agree, it remembers that choice for that provider and model. Each later tap on Send shares only the message you are sending, with fixed instructions to return a nutrition estimate and the selected model ID. The request uses your key to authenticate with the selected provider. Morsel does not attach earlier messages, diary entries, saved foods, or meal history. Anything you type in the message itself is shared.</p>
+      <p>Morsel does not save the conversation. If you review and save an estimate, the food and the nutrition values you approve are stored in your Library. Logging a portion in your diary is a separate choice.</p>
+      <p>The provider may retain the message under its own terms and may charge for the request. OpenRouter can route the message to the provider hosting the selected model. That provider may also process or retain the message. Deleting data in Morsel cannot erase records held by those providers.</p>
+      <p>Morsel stores each provider’s key in the iOS Keychain on this iPhone. Keys are excluded from Morsel’s exported backups. In <strong>Preferences → Food helper setup</strong>, select a provider to remove its saved key or choose <strong>Forget sharing consent</strong> to be asked again before sending.</p>
     </section>
 
     <section id="backup" aria-labelledby="backup-heading">
       <h2 id="backup-heading">Backups, restore, and removal</h2>
       <p>Export creates a versioned JSON backup through the iOS file picker. A backup can contain diary entries, foods, meals, targets, and other diary data. You choose where the file is saved and who can access it. Morsel restore validates a selected backup and asks you to confirm before it replaces the diary on your iPhone. Morsel API keys are not included in its backups.</p>
-      <p>Morsel has no remote diary copy or account to delete. Removing the app removes its local app data, but does not automatically remove saved provider keys from iOS Keychain. Remove saved keys in Preferences before uninstalling; a Keychain item may remain after the app is removed. Exported files and copies held in device backups or file providers are managed separately through the service or device settings that store them.</p>
+    </section>
+
+    <section id="delete-data" aria-labelledby="delete-heading">
+      <h2 id="delete-heading">Delete all data on this iPhone</h2>
+      <p>In <strong>Preferences → Delete All Data</strong>, Morsel asks you to confirm. Cancel keeps your data. Confirming permanently clears diary entries, saved foods and meals, targets, preferences, provider keys, and remembered sharing consent from Morsel on this iPhone. It also clears cached food searches and recovery copies Morsel created during imports or restores.</p>
+      <p>Backups you exported to Files, iCloud Drive, or another location remain there until you delete them separately. Device backups are managed through your device or backup provider. Uninstalling Morsel alone can leave keys in the iOS Keychain. To clear those keys too, use Delete All Data before uninstalling.</p>
     </section>
 
     <section id="support" aria-labelledby="support-heading">
