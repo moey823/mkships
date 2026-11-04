@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Help and support — Morsel</title>
+  <meta name="description" content="Morsel help for food search, incomplete nutrition totals, local imports, backups, and the optional food description helper.">
+  <meta name="theme-color" content="#176456">
+  <link rel="canonical" href="https://mkships.app/morsel/support/">
+  <link rel="icon" href="/morsel/icon.png">
+  <link rel="apple-touch-icon" href="/morsel/icon.png">
+  <link rel="stylesheet" href="/morsel/style.css">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Help and support — Morsel">
+  <meta property="og:description" content="Get help with food search, diary totals, imports, backups, and Morsel’s optional food helper.">
+  <meta property="og:url" content="https://mkships.app/morsel/support/">
+  <meta property="og:image" content="https://mkships.app/morsel/icon.png">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="/morsel/"><img src="/morsel/icon.png" alt="" width="38" height="38">Morsel</a>
+    <nav class="site-nav" aria-label="Morsel"><a href="/morsel/">Overview</a><a href="/morsel/support/" aria-current="page">Support</a><a href="/morsel/privacy/">Privacy</a></nav>
+  </header>
+  <main id="main" class="wrap legal" tabindex="-1">
+    <div class="eyebrow">Morsel · Help and support</div>
+    <h1>How can we help?</h1>
+    <p class="lead">Find an answer below or contact the developer if something is not working as expected.</p>
+
+    <div class="notice">
+      <p><strong>Contact the developer</strong></p>
+      <p>Morsel is provided by Matthew Kearney. Email <a href="mailto:hello@mkships.app?subject=Morsel%20support">hello@mkships.app</a> with your iPhone model, iOS version, app version, and a short description of what happened.</p>
+      <p>Please do not email an API key, diary export, or private food history. If you attach a screenshot, crop or cover personal information first.</p>
+    </div>
+
+    <section aria-labelledby="answers-heading">
+      <h2 id="answers-heading">Common questions</h2>
+      <details>
+        <summary>Where is my food diary stored?</summary>
+        <p>Your diary is stored in Morsel on your iPhone. There is no Morsel account or developer-run server copy. See the <a href="/morsel/privacy/#local-data">privacy policy</a> for more on local records and the separate places backups can be stored.</p>
+      </details>
+      <details>
+        <summary>Why is a nutrition total marked incomplete?</summary>
+        <p>At least one included entry is missing that nutrient. Morsel keeps an unknown value blank instead of treating it as zero. Trend averages use only logged days with a complete value for the selected nutrient; incomplete and unlogged days remain visible separately.</p>
+      </details>
+      <details>
+        <summary>How can I find a food?</summary>
+        <p>Morsel searches your saved foods first, then its bundled USDA SR Legacy catalog, which works offline. You can create a custom food, scan or enter a barcode, or submit a packaged-food search to Open Food Facts. Online search sends the search text you entered; a requested barcode lookup sends that barcode. The requests do not include your diary.</p>
+      </details>
+      <details>
+        <summary>How does MyFitnessPal import work?</summary>
+        <p>Open Preferences → Your data → Import from MyFitnessPal. Choose Paste food data or Choose .txt, .tsv, or .json file. Supported inputs are UTF-8 tab-separated tables or version 1 JSON, up to 256 KB and 250 nonblank records including headings. CSV and ZIP Premium meal-summary downloads are not supported. Import parsing and review stay on your iPhone; Morsel does not sign in to MyFitnessPal. Review selected foods or a meal before confirming what to save. Reconstructed meals do not include MyFitnessPal recipe details.</p>
+      </details>
+      <details>
+        <summary>What does the optional AI food helper send?</summary>
+        <p>Each request asks for a separate confirmation that names OpenRouter, OpenAI, or Anthropic. Morsel sends your exact text and a fixed instruction to return a JSON nutrition estimate. It does not send your diary, saved foods, meals, history, or Apple Health records. Your own provider key is stored in iOS Keychain. The provider’s own data handling and charges may apply; see the <a href="/morsel/privacy/#ai-helper">privacy policy</a>.</p>
+        <p>The reply is an estimate that you can edit. Morsel does not log it automatically.</p>
+      </details>
+      <details>
+        <summary>How do I remove my saved provider key?</summary>
+        <p>Open Preferences → AI provider → API key, choose Remove saved key, and confirm Remove key for the selected provider. Remove saved keys before uninstalling Morsel; a Keychain item may remain after the app is removed.</p>
+      </details>
+      <details>
+        <summary>How do I export or restore a backup?</summary>
+        <p>Open Preferences and use the Your data section. Export saves a versioned JSON file through the iOS file picker. Restore validates the selected file and shows the entry, food, and saved meal counts before asking whether to replace the diary. Cancel leaves the current diary as it is.</p>
+      </details>
+      <details>
+        <summary>Can I use Morsel without an online service?</summary>
+        <p>The bundled USDA catalog search and the diary work offline. Open Food Facts lookups and the optional AI helper require an internet connection and run only when you ask for them. Morsel does not upload diary records automatically.</p>
+      </details>
+    </section>
+
+    <p class="note">For details about information handling, read the <a href="/morsel/privacy/">privacy policy</a>.</p>
+  </main>
+  <footer>
+    <div class="footer-links"><a href="/">← mkships</a><a href="/morsel/">Overview</a><a href="/morsel/support/">Support</a><a href="/morsel/privacy/">Privacy</a></div>
+    <span>© 2026 Matthew Kearney</span>
+  </footer>
+</body>
+</html>

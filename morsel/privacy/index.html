@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy policy — Morsel</title>
+  <meta name="description" content="How Morsel stores your food diary on iPhone and handles optional Open Food Facts requests, MyFitnessPal imports, AI prompts, backups, and support.">
+  <meta name="theme-color" content="#176456">
+  <link rel="canonical" href="https://mkships.app/morsel/privacy/">
+  <link rel="icon" href="/morsel/icon.png">
+  <link rel="apple-touch-icon" href="/morsel/icon.png">
+  <link rel="stylesheet" href="/morsel/style.css">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Privacy policy — Morsel">
+  <meta property="og:description" content="How Morsel stores your food diary on iPhone and handles optional external requests, imports, and backups.">
+  <meta property="og:url" content="https://mkships.app/morsel/privacy/">
+  <meta property="og:image" content="https://mkships.app/morsel/icon.png">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="/morsel/"><img src="/morsel/icon.png" alt="" width="38" height="38">Morsel</a>
+    <nav class="site-nav" aria-label="Morsel"><a href="/morsel/">Overview</a><a href="/morsel/support/">Support</a><a href="/morsel/privacy/" aria-current="page">Privacy</a></nav>
+  </header>
+  <main id="main" class="wrap legal" tabindex="-1">
+    <div class="eyebrow">Morsel · Your information</div>
+    <h1>Privacy policy</h1>
+    <p class="updated">Effective November 4, 2026</p>
+    <div class="notice">
+      <p><strong>Morsel keeps your food diary on your iPhone.</strong> It has no account or developer-run backend, and does not automatically upload your diary. Open Food Facts receives a search you submit or a barcode lookup you request. The AI helper receives your confirmed text and a fixed instruction to return a JSON nutrition estimate.</p>
+    </div>
+    <p>This policy covers the Morsel iPhone app, the Morsel pages on mkships.app, and support requests. Morsel is provided by Matthew Kearney.</p>
+
+    <section id="local-data" aria-labelledby="local-data-heading">
+      <h2 id="local-data-heading">Your diary and settings</h2>
+      <p>Morsel stores diary entries, food and meal records, portion amounts, meal labels, dates, saved nutrition values, optional targets, and preferences in the app on your iPhone. A diary entry keeps a snapshot of its nutrition values even if you later change a saved food. The app does not send these records to a Morsel server.</p>
+      <p>Morsel does not connect to Apple Health or access Apple Health records. It has no account, ads, subscriptions, or automatic diary uploads.</p>
+    </section>
+
+    <section id="food-data" aria-labelledby="food-data-heading">
+      <h2 id="food-data-heading">Food search and barcode requests</h2>
+      <p>The USDA SR Legacy catalog is included in the app and searches that catalog work offline.</p>
+      <p>Open Food Facts is optional. When you submit an online search, the search text is sent to Open Food Facts. When you request a barcode lookup, the barcode is sent to look up a product; choosing a search result can also request the selected product’s current details. These requests do not include your diary, saved foods, meal history, account details, or identity. Open Food Facts receives the request and handles it under its own policies. As with any online request, the service may also receive ordinary connection information.</p>
+    </section>
+
+    <section id="mfp-import" aria-labelledby="mfp-heading">
+      <h2 id="mfp-heading">MyFitnessPal import</h2>
+      <p>Import is local. In Preferences → Your data → Import from MyFitnessPal, choose Paste food data or Choose .txt, .tsv, or .json file. Morsel accepts UTF-8 tab-separated tables or version 1 JSON, up to 256 KB and 250 nonblank records including headings. CSV and ZIP Premium meal-summary downloads are not supported. Morsel parses the material on your iPhone and lets you review it before you confirm which foods or meal to save. It does not sign in to MyFitnessPal, connect to a MyFitnessPal account, or send your diary there.</p>
+      <p>If you choose a file stored by iCloud Drive or another file provider, that provider may handle the file under its own policies. Morsel receives the file you choose through the iOS file picker.</p>
+    </section>
+
+    <section id="ai-helper" aria-labelledby="ai-heading">
+      <h2 id="ai-heading">Optional AI food helper</h2>
+      <p>The helper is optional and stays off until you configure it with your own key. You can choose OpenRouter, OpenAI, or Anthropic. Each request requires a separate confirmation step naming the selected provider.</p>
+      <p>Only the exact text you submit, plus Morsel’s fixed instruction to return a JSON nutrition estimate, is sent to the selected provider. Morsel does not add your conversation history, diary entries, saved foods, meal history, identity, or other personal context. The selected provider and model identifiers are sent as request metadata. The API key is sent to that provider in its normal authorization header to authenticate the request. Morsel stores keys per provider in iOS Keychain and excludes them from Morsel backups. Provider and model preferences stay on your iPhone. In Preferences → AI provider → API key, choose Remove saved key and confirm Remove key to remove a key for that provider. Remove saved keys before uninstalling; a Keychain item may remain after the app is removed.</p>
+      <p>Morsel does not store prompts or replies. The response is shown for you to edit; nothing is logged automatically. If you confirm a food estimate, it is saved locally and labeled as an AI estimate. Morsel never sends your diary or Apple Health records to an AI provider.</p>
+      <p>The chosen provider receives and processes the prompt under its own terms and privacy practices. If you use OpenRouter, it routes the request to the selected underlying model provider; that provider may also process the prompt under its own policies. Morsel does not control or promise how either service retains information. Provider charges may apply. Review the applicable policies before sending text.</p>
+    </section>
+
+    <section id="backup" aria-labelledby="backup-heading">
+      <h2 id="backup-heading">Backups, restore, and removal</h2>
+      <p>Export creates a versioned JSON backup through the iOS file picker. A backup can contain diary entries, foods, meals, targets, and other diary data. You choose where the file is saved and who can access it. Morsel restore validates a selected backup and asks you to confirm before it replaces the diary on your iPhone. Morsel API keys are not included in its backups.</p>
+      <p>Morsel has no remote diary copy or account to delete. Removing the app removes its local app data, but does not automatically remove saved provider keys from iOS Keychain. Remove saved keys in Preferences before uninstalling; a Keychain item may remain after the app is removed. Exported files and copies held in device backups or file providers are managed separately through the service or device settings that store them.</p>
+    </section>
+
+    <section id="support" aria-labelledby="support-heading">
+      <h2 id="support-heading">Support, email, and this website</h2>
+      <p>If you email support, our email provider processes your address, message, and any attachments so we can reply. We keep support correspondence only as needed to handle the request, follow-up, or legal obligations. Please send only what is needed; we do not sell support information or use it for ads.</p>
+      <p>GitHub Pages hosts this site and may process technical details such as your IP address under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub’s privacy statement</a>. These pages have no analytics or advertising scripts.</p>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Questions or requests</h2>
+      <p>Email <a href="mailto:hello@mkships.app?subject=Morsel%20privacy">hello@mkships.app</a> with privacy questions or requests about support correspondence. We may retain information where legally required. We will post policy updates here with a revised effective date.</p>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-links"><a href="/">← mkships</a><a href="/morsel/">Overview</a><a href="/morsel/support/">Support</a><a href="/morsel/privacy/">Privacy</a></div>
+    <span>© 2026 Matthew Kearney</span>
+  </footer>
+</body>
+</html>
